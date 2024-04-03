@@ -1,0 +1,175 @@
+ /* Custom styles */
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    color: #111;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 1.15;
+
+}
+
+/* header */
+#header {
+    background-color: #FC596B;
+}
+
+#top-header {
+    align-items: center;
+
+}
+
+#top-header-left{
+    height: 100%;
+    /* border: 1px solid blue; */
+}
+#top-header-right{
+    text-align: center;
+}
+
+#top-social-media {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: block;
+    /* border: 1px solid blue; */
+    /* width: fit-content; */
+    justify-items: center;
+}
+
+#top-social-media li {
+    display:inline-block;
+    padding: 10px;
+    margin: 0;
+}
+#top-social-media i {
+    color: white;
+}
+
+#dateNow{
+    text-align: center;
+    padding: 0;
+    list-style: none;
+    display: block;
+    /* border: 1px solid red; */
+    padding: 10px;
+    color: white;
+    font-size: 14px;
+}
+
+.main-header{
+    background-color: white;
+    align-items: center;
+}
+
+.main-header > .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    position: relative;
+}
+
+.contact-no{
+    display: flex;
+    justify-content: center;
+}
+.contact-box{
+    display: flex;
+    align-items: center;
+    border: 1px solid #EEE;
+    height: 52px;
+    border-radius: 52px;
+ 
+}
+.contact-box > a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 46px;
+    width: 46px;
+    color: #ffffff;
+    border-radius: 50%;
+    font-size: 18px;
+    background: #FC596B;
+    margin: 2px;
+    
+}
+
+/* giỏ hàng */
+.mini-cart{
+    display: flex;
+    justify-content: center;
+}
+.site-header-cart{
+    display: flex;
+    align-items: center;
+    border-radius: 50px;
+    border: 1px solid #EEE;
+}
+
+.cart-icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    order: 2;
+    font-size: 20px;
+    height: 46px;
+    width: 46px;
+    margin: 2px;
+    background: #FC596B;
+    color: #fff;
+    border-radius: 50%;
+}
+
+.cart-price{
+    margin: 0;
+    white-space: nowrap;
+    padding: 10px 15px;
+}
+
+/* foooter */
+#footer {
+    background-color: #222;
+}
+
+#footer-main {
+    padding: 30px 0;
+    margin: 0 -15px;
+    display: flex;
+    flex-wrap: wrap;
+    color: #aaa;
+}
+
+#footer-bottom {
+    display: flex;
+    border-top: 1px solid #333;
+    align-items: center;
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.9rem;
+    color: #aaa;
+}
+.contact-icon{
+    display: inline-block;
+    float: left;
+    color: #e8bd72;
+}
+
+.contact-detail{
+    padding-left: 25px;
+}
+.contact-detail > a{
+    color: #aaa;
+}
+.cty-name > a{
+    color: #aaa;
+}
+
