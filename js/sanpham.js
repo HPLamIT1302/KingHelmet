@@ -380,7 +380,7 @@ var productList = [
         category: "Mũ 1/2",
         description: "Mũ bảo hiểm loại 1/2 đầu, thiết kế thời trang và phong cách.",
         price: 410000,
-        discountPercent: 20,
+        discountPercent: 55,
         details: [
             "- Vỏ bằng polycarbonate",
             "- Trọng lượng: 860g ± 50g",
@@ -410,7 +410,7 @@ var productList = [
         category: "Mũ lật cằm",
         description: "Mũ bảo hiểm lật cằm cao cấp, thiết kế thời trang và tiện dụng.",
         price: 620000,
-        discountPercent: 15,
+        discountPercent: 35,
         details: [
             "- Vỏ bằng nhựa ABS nguyên sinh",
             "- Trọng lượng: 1237g ± 50g",
@@ -438,7 +438,7 @@ var productList = [
         category: "Mũ lật cằm",
         description: "Mũ bảo hiểm lật cằm đẹp mắt, đảm bảo độ an toàn khi điều khiển xe.",
         price: 580000,
-        discountPercent: 30,
+        discountPercent: 40,
         details: [
             "- Vỏ bằng nhựa ABS nguyên sinh",
             "- Trọng lượng: 1237g ± 50g",
@@ -797,74 +797,13 @@ var productList = [
 ];
 
 
-var bestSellers = [
-    {
-        name: "Mũ 3/4 - Mẫu 4",
-        image: "../images/mbh_34/mu34_04.jpg",
-        category: "Mũ 3/4",
-        description: "Mũ bảo hiểm loại 3/4 đầu, phong cách đơn giản nhưng hiện đại.",
-        price: 480000,
-        discountPercent: 30
-    },
-    {
-        name: "Mũ Fullface - Mẫu 1",
-        image: "../images/mbh_fullface/full01.jpg",
-        category: "Mũ Fullface",
-        description: "Mũ bảo hiểm Fullface chất lượng cao, bảo vệ toàn diện cho đầu.",
-        price: 800000,
-        discountPercent: 30
-    },
-    {
-        name: "Mũ Fullface - Mẫu 5",
-        image: "../images/mbh_fullface/full05.jpg",
-        category: "Mũ Fullface",
-        description: "Mũ bảo hiểm Fullface thời trang, phong cách và độ bền cao.",
-        price: 790000,
-        discountPercent: 30
-    },
-    {
-        name: "Mũ 1/2 - Mẫu 6",
-        image: "../images/mbh_12/mu12_06.png",
-        category: "Mũ 1/2",
-        description: "Mũ bảo hiểm loại 1/2 đầu, bền bỉ và an toàn khi sử dụng.",
-        price: 420000,
-        discountPercent: 30
-    },
-    {
-        name: "Mũ lật cằm - Mẫu 4",
-        image: "../images/mbh_latcam/latcam04.jpg",
-        category: "Mũ lật cằm",
-        description: "Mũ bảo hiểm lật cằm đẹp mắt, đảm bảo độ an toàn khi điều khiển xe.",
-        price: 580000,
-        discountPercent: 30
-    },
-    {
-        name: "Mũ lật cầm - Mẫu 1",
-        image: "../images/mbh_latcam/latcam01.jpg",
-        category: "Mũ lật cằm",
-        description: "Mũ bảo hiểm lật cằm tiện dụng, thích hợp cho chạy xe phong cách.",
-        price: 600000,
-        discountPercent: 25
-    },
-    {
-        name: "Mũ lật cằm - Mẫu 5",
-        image: "../images/mbh_latcam/latcam05.jpg",
-        category: "Mũ lật cằm",
-        description: "Mũ bảo hiểm lật cằm thời trang, phong cách và chất lượng cao.",
-        price: 600000,
-        discountPercent: 25
-    },
-    {
-        name: "Mũ trẻ em - Mẫu 8",
-        image: "../images/mbh_treem/treem08.jpg",
-        category: "Mũ trẻ em",
-        description: "Mũ bảo hiểm trẻ em với nhiều lựa chọn màu sắc và kiểu dáng.",
-        price: 310000,
-        discountPercent: 30
-    }
 
-];
+// Hàm lọc sản phẩm bán chạy (discountPercent > 30%)
+function filterBestSellers(products) {
+    return products.filter(product => product.discountPercent > 25);
+}
 
+// Hàm tạo carousel cho sản phẩm bán chạy
 function generateBestSellersCarousel(products) {
     const carouselContainer = document.createElement('div');
     carouselContainer.classList.add('carousel');
@@ -891,16 +830,22 @@ function generateBestSellersCarousel(products) {
         slideContent.classList.add('row');
 
         slideProducts.forEach((product) => {
+            var discountPrice = product.price * (1 - product.discountPercent / 100);
+            var hasDiscount = product.discountPercent > 0;
+
             const productCard = `
-                <div class="col-md-3">
-                    <div class="card mb-4">
-                        <img src="${product.image}" class="card-img-top img-fluid" alt="${product.name}">
-                        <div class="card-body">
-                            <h5 class="card-title">${product.name}</h5>
-                            <p class="card-text">${product.description}</p>
-                            <p class="card-price">Price: ${product.price.toLocaleString()} VND</p>
-                            <p class="card-discount">Discount: ${product.discountPercent}%</p>
+                <div class="col-md-4 col-lg-3 col-6 mb-3">
+                    <div class="product-card"  data-category="${product.category}" >
+                        <img src="${product.image}" alt="${product.name}" class="product-image img-fluid ">
+                        <div class="product-content d-flex flex-column ">
+                            <div class="product-title text-center">${product.name}</div>
+                            <div class="product-description">${product.description}</div>
+                            <div class="product-price-container">
+                                ${hasDiscount ? `<div class="product-discount">${product.price.toLocaleString()} VND</div>` : ''}
+                                <div class="product-price">${discountPrice.toLocaleString()} VND</div>
+                            </div>
                         </div>
+                        <div class="btn-discount">${hasDiscount ? `-${product.discountPercent.toLocaleString()}%` : ''}</div>
                     </div>
                 </div>
             `;
@@ -915,10 +860,14 @@ function generateBestSellersCarousel(products) {
 
     return carouselContainer;
 }
-window.onload = function () {
-    const bestSellersCarousel = generateBestSellersCarousel(bestSellers);
 
-    // Chọn phần tử container để chèn băng chuyền vào
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // Lọc các sản phẩm bán chạy (discountPercent > 30%)
+    const bestSellers = filterBestSellers(productList);
+
+    // Tạo carousel cho các sản phẩm bán chạy và chèn vào trang web
+    const bestSellersCarousel = generateBestSellersCarousel(bestSellers);
     const containerElement = document.getElementById('bestSellersCarouselContainer');
     containerElement.appendChild(bestSellersCarousel);
 
@@ -926,7 +875,9 @@ window.onload = function () {
     $('#bestSellersCarousel').carousel({
         interval: 3000 // Đặt khoảng thời gian chuyển slide (ở đây là 3000ms = 3 giây)
     });
-};
+});
+
+
 
 
 
@@ -946,7 +897,7 @@ function displayProductsByCategory(categoryName) {
 
         var productHtml = `
                 <div class="col-md-4 col-lg-3 col-6">
-                    <div class="product-card">
+                    <div class="product-card" data-category="${product.category}">
                         <img src="${product.image}" alt="${product.name}" class="product-image img-fluid ">
                         <div class="product-content d-flex flex-column ">
                             <div class="product-title">${product.name}</div>
@@ -1007,13 +958,13 @@ function displayProducts(productList) {
             var productHtml = `
                 <div id="top"></div>
                 <div class="col-md-4 col-lg-3 col-6 mb-3">
-                    <div class="product-card" data-category="${product.category}" ">
+                    <div class="product-card" data-category="${product.category}">
                         <img src="${product.image}" alt="${product.name}" class="product-image img-fluid">
                         <div class="product-content d-flex flex-column ">
                             <div class="product-title">${product.name}</div>
                             <div class="product-description">${product.description}</div>
                             <div class="product-price-container">
-                                ${hasDiscount ? `<div class="product-discount">${product.price.toLocaleString()} VND</div>` : ''}
+                                ${hasDiscount ? `<div class="product-discount" ${product.price.toLocaleString()} VND</div>` : ''}
                                 <div class="product-price">${discountPrice.toLocaleString()} VND</div>
                             </div>
                         </div>
@@ -1124,8 +1075,8 @@ $(document).ready(function () {
             if (!isNaN(discountPercent)) {
                 modalContent += `
                     <div class="product-price-container">
-                        <div class="product-discount"><strong>Giá gốc:</strong>${product.discountPrice.toLocaleString()} </div>
-                        <div class="product-price"><strong>Giá khuyến mãi:</strong> ${product.price.toLocaleString()}  </div>
+                        <div class="product-discount"><strong>Giá gốc: </strong>${product.discountPrice.toLocaleString()} </div>
+                        <div class="product-price"><strong>Giá khuyến mãi: </strong> ${product.price.toLocaleString()}  </div>
                         <div class="btn-discount"><strong>Giảm giá:</strong> ${discountPercent}%</div>
                     </div>
                 `;
