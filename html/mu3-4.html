@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helmet Shop | Mũ 3/4 đầu</title>
+    <link rel="icon" href="../images/LP_Strore_logo_tron.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../images/LP_Strore_logo_tron.png" type="image/x-icon">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/all.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/getdatenow.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+    <!-- header start -->
+    <div id="header">
+        <!-- top header -->
+        <div id="top-header">
+            <div class="container-md">
+                <div class="row">
+                    <div class="col-md-3">
+                        <!-- Hiển thị ngày tháng năm -->
+                        <div id="top-header-left">
+                            <span id="dateNow">03/04/2024</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6"></div>
+                    <div class="col-md-3">
+                        <!-- Danh sách biểu tượng mạng xã hội -->
+                        <div id="top-header-right">
+                            <ul id="top-social-media">
+                                <li class="list-inline-item"><a href="#"><i class="fab fa-facebook"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="fab fa-tiktok"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="fab fa-youtube"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- main header -->
+        <div class="main-header">
+            <div class="container-md">
+                <div class="row justify-content-center align-items-center">
+                    <!-- nút  icon điện thoại -->
+                    <div class="col-md-3 d-md-block d-none">
+                        <div class="contact-no ">
+                            <div class="contact-box">
+                                <a href="tel:028 123 4567"><span class="icon_phone"><i class="fa-solid fa-phone"
+                                            style="color: white;"></i></span></a>
+                                <span class="contact-number" style="padding: 10px 15px;">
+                                    <a href="tel:028 123 4567" style="color: black;">+028 123 4567</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- brand site -->
+                    <div class="col-md-6">
+                        <!-- .site-branding -->
+                        <div class="container">
+                            <div class="row justify-content-center align-items-center mt-3 mb-3"
+                                style="text-align: center;">
+                                <a href="../html/home.html"><img src="../images/LP_Strore_logo_nobg.png" alt="logo"
+                                        style="width: 150px; height: 150px;">
+                                </a>
+                                <br>
+                                <p>
+                                    Bảo vệ sự an toàn của bạn
+                                    <br>
+                                    từ những chuyến đi nhỏ đến những cuộc phiêu lưu lớn.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- nút icon giỏ hàng mini -->
+                    <div class="col-md-3 d-md-block d-none">
+                        <div class="mini-cart">
+                            <div id="site-header-cart" class="site-header-cart">
+                                <a href="#" class="cart-icon"><span><i class="fa-solid fa-cart-shopping"
+                                            style="color: white;"></i></span></a>
+                                <div class="cart-price">
+                                    <a class="cart-contents" href="#" title="View your shopping cart"
+                                        style="color: black;">
+                                    </a>
+                                    <span class="cart-amount">
+                                        1.400.000&nbsp;₫</span> - <span class="cart-count">4 items
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- header end -->
+
+    <!-- navbar start -->
+    <nav class="navbar navbar-expand-lg navbar-dark  sticky-top"
+        style="padding: 0px 5px 0px 5px; background-color: #FB5530;">
+        <!-- Brand and logo -->
+        <a class="navbar-brand" href="../html/home.html"><img src="../images/LP_Strore_logo_tron.png" alt="logo"
+                class="rounded-circle" style="width: 50px;"></a>
+
+        <!-- toggler hiện menu khi thu nhỏ -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- navbar links -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto" id="nav-menu-link">
+                <li class="nav-item">
+                    <a class="nav-link" href="../html/home.html">TRANG CHỦ</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="../html/mu3-4.html" id="navbardrop">
+                        CỬA HÀNG
+                    </a>
+                    <!-- dropdown menu cửa hàng -->
+                    <div class="dropdown-menu" id="nav-shop-dropdown">
+                        <a class="dropdown-item" href="../html/mu3-4.html">Mũ bảo hiểm 3/4 đầu</a>
+                        <a class="dropdown-item" href="#">Mũ Bảo Hiểm Fullface</a>
+                        <a class="dropdown-item" href="#">Mũ bảo hiểm lật cằm</a>
+                        <a class="dropdown-item" href="#">Mũ bảo hiểm 1/2 đầu</a>
+                        <a class="dropdown-item" href="#">Mũ Bảo Hiểm Xe Đạp</a>
+                        <a class="dropdown-item" href="#">Mũ bảo hiểm trẻ em</a>
+                        <a class="dropdown-item" href="#">Kính Mũ Bảo Hiểm</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">GIỎ HÀNG</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">TÀI KHOẢN</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop">
+                        THANH TOÁN
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Thanh toán</a>
+                        <a class="dropdown-item" href="#">Chính sách đổi trả</a>
+                        <a class="dropdown-item" href="#">Chính sách bảo mật</a>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">BÀI VIẾT</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">THÀNH VIÊN</a>
+                </li>
+            </ul>
+
+            <!-- nav right và mục tìm kiếm -->
+            <form id="nav-form-search" class="form-inline" action="">
+
+
+                <!-- mục tìm kiếm -->
+                <div class="input-group">
+
+                    <!--  danh mục sản phẩm -->
+                    <select name="" id="" class="form-control" style="max-width: 200px ;">
+                        <option value="">Tất cả sản phẩm</option>
+                        <option value="">Mũ bảo hiểm 3/4 đầu</option>
+                        <option value="">Mũ bảo hiểm Fullface</option>
+                        <option value="">Mũ bảo hiểm lật cằm</option>
+                        <option value="">Mũ bảo hiểm 1/2 đầu</option>
+                        <option value="">Mũ bảo hiểm Xe Đạp</option>
+                        <option value="">Mũ bảo hiểm trẻ em</option>
+                        <option value="">Kính mũ bảo hiểm</option>
+                    </select>
+
+                    <!-- mục tìm kiếm -->
+                    <input type="text" class="form-control" placeholder="Tìm kiếm ... ">
+                    <div class="input-group-append ">
+                        <button class="btn" style="color: #FB5530;" type="submit"><span><i
+                                    class="fas fa-search"></i></span></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </nav>
+    <!-- navbar end -->
+
+    <!-- aside start -->
+    <div id="aside">
+        <div class="container"></div>
+    </div>
+    <!-- aside end -->
+
+
+    <!-- section start -->
+    <div id="section">
+        <div class="container"></div>
+    </div>
+    <!-- section end -->
+
+
+    <!-- body content start -->
+    <div class="container" style="border: 1px solid ;">
+        <div class="row">
+
+            <!-- aside start -->
+            <div class="col-md-4" style="border-right: 1px solid ;">
+                <div class="row mt-2">
+                    <div class="list-group" style="border: 1px solid black; background-color: tan; width: 100%;">
+                        <h4>Danh mục sản phẩm</h4>
+                        <a href="mu3-4.html" class="list-group-item list-group-item-action">Mũ bảo hiểm 3/4 đầu</a>
+                        <a href="#" class="list-group-item list-group-item-action">Mũ Bảo Hiểm Fullface</a>
+                        <a href="#" class="list-group-item list-group-item-action">Mũ bảo hiểm lật cằm</a>
+                        <a href="#" class="list-group-item list-group-item-action">Mũ bảo hiểm 1/2 đầu</a>
+                        <a href="#" class="list-group-item list-group-item-action">Mũ Bảo Hiểm Xe Đạp</a>
+                        <a href="#" class="list-group-item list-group-item-action">Mũ bảo hiểm trẻ em</a>
+                        <a href="#" class="list-group-item list-group-item-action">Kính Mũ Bảo Hiểm</a>
+                    </div>
+                </div>
+
+                <div class="row mt-2">
+                    <div id="sort-filter-productPerPage">
+                        <div id="sort">
+                            <p class="xoa">Sort by:</p>
+                            <select class="option">
+                                <option value="nameup">Tăng dần theo tên</option>
+                                <option value="namedown">Giảm dần theo tên</option>
+                                <option value="priceup">Tăng dần theo giá</option>
+                                <option value="pricedown">Giảm dần theo giá</option>
+                            </select>
+                        </div>
+                        <div id="filter">
+                            <p class="darkMode">min</p><input class="option" id="min-price" type="number">
+                            <p class="darkMode">max</p><input class="option" id="max-price" type="number">
+                            <button onclick="filterbyprice()" class="option" id="loc-theo-gia">Lọc<p></p>
+                            </button>
+                        </div>
+                        <div id="productPerPage">
+                            <p class="darkMode" id="hien-thi">Hiển thị:</p>
+                            <select>
+                                <option value="40">40 sản phẩm</option>
+                                <option value="20">20 sản phẩm</option>
+                                <option value="10">10 sản phẩm</option>
+                                <option value="5">5 sản phẩm</option>
+                                <option value="9999">Tất cả</option>
+                            </select>
+                        </div>
+                        <hr style="width: 99%;">
+                    </div>
+                </div>
+            </div>
+            <!-- aside end -->
+
+
+            <!-- section start -->
+            <div class="col-md-8 mt-2">
+                <div id="archive-product">
+                    <div class="inner-product" onclick="showDetail2(this)">
+                        <div class="product-img">
+                            <img src="../images/mbh_34/mu34_01.jpg" alt="">
+                        </div>
+                        <div class="product-content">
+                            <p class="name-product">Nón bảo hiểm 3/4 đầu màu trắng</p>
+                            <p class="price-product">Giá: 450.000đ</p>
+                        </div>
+                    </div>
+                    <div class="inner-product" onclick="showDetail2(this)">
+                        <div class="product-img">
+                            <img src="../images/mbh_34/mu34_02.jpg" alt="">
+                        </div>
+                        <div class="product-content">
+                            <p class="name-product">Nón bảo hiểm 3/4 đầu màu xanh lam</p>
+                            <p class="price-product">Giá: 450.000đ</p>
+                        </div>
+                    </div>
+                    <div class="inner-product" onclick="showDetail2(this)">
+                        <div class="product-img">
+                            <img src="../images/mbh_34/mu34_03.jpg" alt="">
+                        </div>
+                        <div class="product-content">
+                            <p class="name-product">Nón bảo hiểm 3/4 đầu màu cờ nước Mỹ</p>
+                            <p class="price-product">Giá: 450.000đ</p>
+                        </div>
+                    </div>
+                    <div class="inner-product" onclick="showDetail2(this)">
+                        <div class="product-img">
+                            <img src="../images/mbh_34/mu34_04.jpg" alt="">
+                        </div>
+                        <div class="product-content">
+                            <p class="name-product">Nón bảo hiểm 3/4 đầu màu xám</p>
+                            <p class="price-product">Giá: 450.000đ</p>
+                        </div>
+                    </div>
+                    <div class="inner-product" onclick="showDetail2(this)">
+                        <div class="product-img">
+                            <img src="../images/mbh_34/mu34_05.jpg" alt="">
+                        </div>
+                        <div class="product-content">
+                            <p class="name-product">Nón bảo hiểm 3/4 đầu màu hồng</p>
+                            <p class="price-product">Giá: 450.000đ</p>
+                        </div>
+                    </div>
+                    <div class="inner-product" onclick="showDetail2(this)">
+                        <div class="product-img">
+                            <img src="../images/mbh_34/mu34_06.jpg" alt="">
+                        </div>
+                        <div class="product-content">
+                            <p class="name-product">Nón bảo hiểm 3/4 đầu màu trắngg</p>
+                            <p class="price-product">Giá: 450.000đ</p>
+                        </div>
+                    </div>
+                    <div class="inner-product" onclick="showDetail2(this)">
+                        <div class="product-img">
+                            <img src="../images/mbh_34/mu34_07.jpg" alt="">
+                        </div>
+                        <div class="product-content">
+                            <p class="name-product">Nón bảo hiểm 3/4 đầu màu đỏ</p>
+                            <p class="price-product">Giá: 450.000đ</p>
+                        </div>
+                    </div>
+                    <div class="inner-product" onclick="showDetail2(this)">
+                        <div class="product-img">
+                            <img src="../images/mbh_34/mu34_08.jpg" alt="">
+                        </div>
+                        <div class="product-content">
+                            <p class="name-product">Nón bảo hiểm 3/4 đầu màu cam</p>
+                            <p class="price-product">Giá: 450.000đ</p>
+                        </div>
+                    </div>
+                    <div class="inner-product" onclick="showDetail2(this)">
+                        <div class="product-img">
+                            <img src="../images/mbh_34/mu34_09.jpg" alt="">
+                        </div>
+                        <div class="product-content">
+                            <p class="name-product">Nón bảo hiểm 3/4 đầu màu đen xanh.</p>
+                            <p class="price-product">Giá: 450.000đ</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="sotrang-product">
+                    <p class="outputPT" style="background-color: #FB5530;">1</p>
+                    <p class="outputPT">2</p>
+                    <p class="outputPT">3</p>
+                    <p class="outputPT">4</p>
+                    <p class="outputPT">5</p>
+                </div>
+
+
+                </div>
+            <!-- section end -->
+        </div>
+    </div>
+    <!-- body content end -->
+
+
+    <!-- foooter start -->
+    <div id="footer">
+        <div class="container">
+            <div id="footer-main">
+                <div class="row">
+                    <!-- giới thiệu -->
+                    <div class="col-md-5 mt-3 ">
+                        <div class="cty-name">
+                            <a href="../html/home.html"><img src="../images/LP_Strore_logo_tron.png"
+                                    style="width: 70px;" alt="logo">CÔNG TY TTHH LP STORE</a>
+                        </div>
+
+                        <div class="cty-about mt-2">
+                            <span class="contact-icon">
+                                <span><i class="fa-regular fa-bookmark"></i></span>
+                            </span>
+                            <div class="contact-detail">
+                                Chuyên cung cấp các sản phẩm về mũ bảo hiểm chất lượng cao. Cùng bạn đồng hành trên
+                                những chặng đường phiêu du
+
+                            </div>
+                        </div>
+
+                        <div class="cty-ban-quyen mt-2">
+                            <span class="contact-icon">
+                                <i class="fa-solid fa-check"></i>
+                            </span>
+                            <div class="contact-detail">
+                                © Mọi hình ảnh được sử dụng trong website thuộc quyền sở hữu của
+                                <a href="https://royalhelmet.com.vn/">Royalhelmet</a>.
+                                Mọi giao dịch đều là ảo không thể thanh toán.
+                            </div>
+                        </div>
+
+                        <div class="cty-muc-dich mt-2">
+                            <span class="contact-icon">
+                                <i class="fa-solid fa-school"></i>
+                            </span>
+                            <div class="contact-detail">
+                                Đây là dự án bài tập lớn của môn Hệ thống Công nghệ
+                                website. Thực hiện viết và xây dựng lên website bán hàng. Mọi hình ảnh và sản phẩm trong
+                                website chỉ mang tính thử nghiệm, không mang tính chất thương mại.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- liên hệ -->
+                    <div class="col-md-4 mt-3">
+                        <div class="cty-title-contact">
+                            <h5>LIÊN HỆ</h5>
+                        </div>
+
+                        <div class="cty-address mt-2">
+                            <span class="contact-icon">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </span>
+                            <div class="contact-detail">
+                                Địa chỉ: 12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, TP.HCM
+                            </div>
+                        </div>
+
+                        <div class="cty-tel mt-2">
+                            <span class="contact-icon">
+                                <i class="fa-solid fa-phone"></i>
+                            </span>
+                            <div class="contact-detail">
+                                <a href="tel:+028 123 4567">Điện thoại: +028 123 4567</a>
+                            </div>
+                        </div>
+
+                        <div class="cty-mail mt-2">
+                            <span class="contact-icon">
+                                <i class="fa-solid fa-envelope"></i>
+                            </span>
+                            <div class="contact-detail">
+                                <a href="mailto:lpstrore@iuh.edu.vn">Email: lpstrore@iuh.edu.vn</a>
+                            </div>
+                        </div>
+
+                        <div class="cty-web mt-2">
+                            <span class="contact-icon">
+                                <i class="fa-solid fa-globe"></i>
+                            </span>
+                            <div class="contact-detail">
+                                <a href="../html/home.html">Website: www.lpstore.com.vn</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Theo dõi chúng tôi -->
+                    <div class="col-md-3 mt-3">
+                        <div class="cty-follow-us">
+                            <h5>Tương tác với chúng tôi</h5>
+                            <ul id="top-social-media">
+                                <li class="list-inline-item"><a href="#"><i class="fab fa-facebook"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="fab fa-tiktok"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="fab fa-youtube"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- footer bôttom -->
+            <div id="footer-bottom">
+                <div class="row" style=" width: 100%;">
+                    <div class="col-md-12">
+                        © 2024 PL Store by Hồ Phúc Lâm . All Right Reserved. PL Store is Powered by HTML, CSS, Bootstrap
+                        4.
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer endd -->
+
+    <a href="javascript:void(0)" id="back-to-top" >
+        <span>
+            <img src="../images/icon/MOTOR-royal.png" alt="backtotop" >
+            <img src="../images/icon/light-focus.png" alt="hover" class="hover">
+        </span>
+    </a>
+
+</body>
+
+</html>
