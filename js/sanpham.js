@@ -943,7 +943,7 @@ function displayProducts(productList) {
 
             var productHtml = `
                 <div class="col-md-4 col-lg-3 col-6 mb-3">
-                    <div class="product-card" data-category="${product.category}" data-details="${product.details}" >
+                    <div class="product-card" data-category="${product.category}"  >
                         <img src="${product.image}" alt="${product.name}" class="product-image img-fluid">
                         <div class="product-content d-flex flex-column ">
                             <div class="product-title">${product.name}</div>
@@ -1017,7 +1017,7 @@ $(document).ready(function () {
             discountPrice: $(this).find('.product-discount').text().trim(), // Giá sau khi giảm giá
             price: $(this).find('.product-price').text().trim(), // Giá bán
             discountPercent: $(this).find('.btn-discount').text().trim(), // Phần trăm giảm giá
-            details: $(this).data('productDetails')   // Thêm chi tiết sản phẩm từ data-details
+            // details: $(this).data('details') ? JSON.parse($(this).data('details')) : []
         };
 
         // Gọi hàm hiển thị modal và thông tin sản phẩm
