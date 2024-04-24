@@ -21,19 +21,21 @@
     <script src="./js/sanpham.js"></script>
     <script>
         $(document).ready(function () {
-    // Lọc các sản phẩm bán chạy (discountPercent > 30%)
-    const bestSellers = filterBestSellers(productList);
+            // Lọc các sản phẩm bán chạy (discountPercent > 30%)
+            const bestSellers = filterBestSellers(productList);
 
-    // Tạo carousel cho các sản phẩm bán chạy và chèn vào trang web
-    const bestSellersCarousel = generateBestSellersCarousel(bestSellers);
-    const containerElement = document.getElementById('bestSellersCarouselContainer');
-    containerElement.appendChild(bestSellersCarousel);
+            // Tạo carousel cho các sản phẩm bán chạy và chèn vào trang web
+            const bestSellersCarousel = generateBestSellersCarousel(bestSellers);
+            const containerElement = document.getElementById('bestSellersCarouselContainer');
+            containerElement.appendChild(bestSellersCarousel);
 
-    // Kích hoạt carousel bằng JavaScript
-    $('#bestSellersCarousel').carousel({
-        interval: 3000 // Đặt khoảng thời gian chuyển slide (ở đây là 3000ms = 3 giây)
-    });
-});
+            // Kích hoạt carousel bằng JavaScript
+            $('#bestSellersCarousel').carousel({
+                interval: 3000 // Đặt khoảng thời gian chuyển slide (ở đây là 3000ms = 3 giây)
+            });
+
+            
+        });
     </script>
 </head>
 
