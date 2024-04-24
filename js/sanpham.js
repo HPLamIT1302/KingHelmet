@@ -869,6 +869,113 @@ function generateBestSellersCarousel(products) {
 }
 
 
+
+//hien thi san pham
+function displayProducts(productList, categoryName) {
+    var itemsPerPage = 12;
+    var currentPage = 1;
+
+    // Lọc danh sách sản phẩm theo danh mục nếu categoryName không phải là 'all'
+    var filteredProducts = categoryName === 'all' ? productList : productList.filter(function(product) {
+        return product.category === categoryName;
+    });
+
+    // Function to render products based on pagination
+    function renderProducts(page) {
+        $('#productList').empty();
+
+        var startIndex = (page - 1) * itemsPerPage;
+        var endIndex = Math.min(startIndex + itemsPerPage, filteredProducts.length);
+        var productListHtml = '';
+
+        for (var i = startIndex; i < endIndex; i++) {
+            var product = filteredProducts[i];
+            var discountPrice = product.price * (1 - product.discountPercent / 100);
+            var hasDiscount = product.discountPercent > 0;
+
+            var productHtml = `
+                <div class="col-md-4 col-lg-3 col-6 mb-3">
+                    <div class="product-card" data-category="${product.category}">
+                        <img src="${product.image}" alt="${product.name}" class="product-image img-fluid">
+                        <div class="product-content d-flex flex-column">
+                            <div class="product-title">${product.name}</div>
+                            <div class="product-description">${product.description}</div>
+                            <div class="product-price-container">
+                                ${hasDiscount ? `<div class="product-discount">${product.price.toLocaleString()} VND</div>` : ''}
+                                <div class="product-price">${discountPrice.toLocaleString()} VND</div>
+                            </div>
+                        </div>
+                        <div class="btn-discount ${hasDiscount ? '' : 'd-none'}">${hasDiscount ? `-${product.discountPercent.toLocaleString()}%` : ''}</div>
+                    </div>
+                </div>
+            `;
+
+            productListHtml += productHtml;
+        }
+
+        $('#productList').html(productListHtml);
+
+        // Create pagination
+        var totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
+        $('#pagination').empty();
+        for (var i = 1; i <= totalPages; i++) {
+            var activeClass = i === currentPage ? 'active' : '';
+            $('#pagination').append(`
+                <li class="page-item ${activeClass}"><a class="page-link" href="#" data-page="${i}">${i}</a></li>
+            `);
+        }
+    }
+
+    // Display initial products
+    renderProducts(currentPage);
+
+    // Handle pagination click
+    $(document).on('click', '#pagination .page-link', function(e) {
+        e.preventDefault();
+        currentPage = $(this).data('page');
+        renderProducts(currentPage);
+        // Scroll to top of the page
+        $('html, body').animate({ scrollTop: $('#top').offset().top }, 'slow');
+    });
+
+    // Handle "Mua ngay" button click
+    $(document).on('click', '.btn-buy-now', function() {
+        var name = $(this).data('name');
+        var price = $(this).data('price');
+        addToCart(name, price);
+    });
+
+    function addToCart(name, price) {
+        console.log('Đã thêm sản phẩm', name, 'vào giỏ hàng với giá', price);
+    
+        // Tạo một phần tử div để đại diện cho thông báo alert
+        var alertDiv = document.createElement('div');
+        alertDiv.className = 'alert alert-primary'; // Áp dụng lớp CSS alert-primary
+    
+        // Tạo nội dung cho alert (trong trường hợp này là strong tag)
+        alertDiv.innerHTML = `<strong>${name}</strong> đã được thêm vào giỏ hàng với giá ${price}`;
+    
+        // Chèn phần tử alert vào trang web (ví dụ: sau một phần tử có id là 'cartContainer')
+        var cartContainer = document.getElementById('cartContainer');
+        if (cartContainer) {
+            cartContainer.appendChild(alertDiv);
+        } else {
+            console.error('Không tìm thấy phần tử có id là "cartContainer"');
+        }
+    
+        // Sau một khoảng thời gian, bạn có thể muốn xóa thông báo alert (ví dụ: sau 3 giây)
+        setTimeout(function() {
+            if (cartContainer && alertDiv) {
+                cartContainer.removeChild(alertDiv);
+            }
+        }, 3000); // Xóa alert sau 3 giây (3000 milliseconds)
+    }
+    
+}
+
+
+
+/*
 // Function displayProductsByCategory
 function displayProductsByCategory(categoryName) {
     var filteredProducts = productList.filter(function (product) {
@@ -940,10 +1047,11 @@ function displayProducts(productList) {
             var product = productList[i];
             var discountPrice = product.price * (1 - product.discountPercent / 100);
             var hasDiscount = product.discountPercent > 0;
+            var details = product.details;
 
             var productHtml = `
                 <div class="col-md-4 col-lg-3 col-6 mb-3">
-                    <div class="product-card" data-category="${product.category}"  >
+                    <div class="product-card" data-category="${product.category}" data-details="${product.details.toLocaleString()}" >
                         <img src="${product.image}" alt="${product.name}" class="product-image img-fluid">
                         <div class="product-content d-flex flex-column ">
                             <div class="product-title">${product.name}</div>
@@ -1002,12 +1110,14 @@ function displayProducts(productList) {
 
 }
 
+*/
 
 
 // Khai báo hàm khi tài liệu đã sẵn sàng
 $(document).ready(function () {
     // Sự kiện click vào .product-card
     $(document).on('click', '.product-card', function() {
+       
        
         var product = {
             name: $(this).find('.product-title').text(),
@@ -1138,3 +1248,6 @@ $(document).ready(function () {
     }
     
 });
+
+//  chuẩn bị sửa
+
