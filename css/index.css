@@ -141,3 +141,44 @@ legend {
 #vote-5-star .list-inline-item:not(:last-child){
     margin-right: 0;
 }
+/* foooter */
+#footer {
+    background-color: #4993E8;
+    padding: 15px 15px;
+    color: black;
+}
+#footer a{
+    color: #000;
+}
+#footer-main {
+    padding: 30px 0;
+    margin: 0 -15px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#footer-bottom {
+    display: flex;
+    border-top: 1px solid #333;
+    align-items: center;
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.9rem;
+    color: #aaa;
+}
+.contact-icon{
+    display: inline-block;
+    float: left;
+    color: #e8bd72;
+}
+
+.contact-detail{
+    padding-left: 25px;
+}
+.contact-detail > a{
+    color: #aaa;
+}
+.cty-name > a{
+    color: #aaa;
+}
+
