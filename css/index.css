@@ -121,8 +121,9 @@ fieldset {
     border: 1px solid #ccc; /* Đường viền của fieldset */
     margin: 0 auto; /* Canh giữa fieldset trong layout */
 
-    border: 20px solid royalblue;
-    /* border-radius: 50px; */
+    border: 20px solid #0099e5;
+    /* border-radius: 250px; */
+    border-radius: 20%;
 }
 
 legend {
@@ -131,7 +132,7 @@ legend {
     /* background-color: #f8f9fa;  */
     font-size: 24px;
     font-weight: bold;
-    color: #0099e5;
+    color: royalblue;
     padding-left: 20px;
     padding-right: 20px;
 }
