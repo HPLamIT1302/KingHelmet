@@ -180,3 +180,37 @@ legend {
     color: #aaa;
 }
 
+#list-icon-category .col{
+    margin: 0;
+    padding: 0;
+    /* padding-right: 5px; */
+    /* display: flex; */
+
+}
+#list-icon-category  img{
+    object-fit: contain;
+    
+}
+#list-icon-category .home-category:hover{
+    /* transform: scaleY(1.1); */
+    transform: scale(1.1);
+}
+.home-category{
+    overflow: hidden;
+    border: 1px solid #aaa;
+    /* border-radius: 15px; */
+    padding: 10px;
+}
+.home-category-title{
+    /* border: 1px solid yellowgreen; */
+    background-color: red;
+    padding: 0;
+    /* border-radius: 0px 0px 15px 15px; */
+    flex-grow: 1;
+}
+.home-category-title a{
+    text-align: center;
+    color: #111;
+    font-weight: 700;
+}
+
