@@ -798,78 +798,6 @@ var productList = [
 
 
 
-// Hàm lọc sản phẩm bán chạy (discountPercent > 30%)
-function filterBestSellers(products) {
-    return products.filter(product => product.discountPercent > 25);
-}
-
-// Hàm tạo carousel cho sản phẩm bán chạy
-function generateBestSellersCarousel(products) {
-    const carouselContainer = document.createElement('div');
-    carouselContainer.classList.add('carousel');
-    carouselContainer.setAttribute('id', 'bestSellersCarousel'); // Đặt id cho carousel
-
-    const carouselInner = document.createElement('div');
-    carouselInner.classList.add('carousel-inner');
-
-    const numProductsPerSlide = 4;
-    const numSlides = Math.ceil(products.length / numProductsPerSlide);
-
-    for (let i = 0; i < numSlides; i++) {
-        const carouselItem = document.createElement('div');
-        carouselItem.classList.add('carousel-item');
-
-        // Thêm lớp 'active' cho phần tử đầu tiên
-        if (i === 0) {
-            carouselItem.classList.add('active');
-        }
-
-        const slideProducts = products.slice(i * numProductsPerSlide, (i + 1) * numProductsPerSlide);
-
-        const slideContent = document.createElement('div');
-        slideContent.classList.add('row');
-
-        slideProducts.forEach((product) => {
-            var discountPrice = product.price * (1 - product.discountPercent / 100);
-            var hasDiscount = product.discountPercent > 0;
-
-            const productCard = `
-                <div class="col-md-4 col-lg-3 col-6 mb-3">
-                    <div class="product-card"  data-category="${product.category}" >
-                        <img src="${product.image}" alt="${product.name}" class="product-image img-fluid ">
-                        <div class="product-content d-flex flex-column ">
-                            <div class="product-title text-center">${product.name}</div>
-                            <div class="product-description">${product.description}</div>
-                            <ul id="vote-5-star" class="mr-0">
-                                <li class="list-inline-item"><i class="fa fa-star text-warning"></i></li>
-                                <li class="list-inline-item"><i class="fa fa-star text-warning"></i></li>
-                                <li class="list-inline-item"><i class="fa fa-star text-warning"></i></li>
-                                <li class="list-inline-item"><i class="fa fa-star text-warning"></i></li>
-                                <li class="list-inline-item"><i class="fa fa-star text-warning"></i></li>
-                            </ul>
-                            <div class="product-price-container">
-                                ${hasDiscount ? `<div class="product-discount">${product.price.toLocaleString()} VND</div>` : ''}
-                                <div class="product-price">${discountPrice.toLocaleString()} VND</div>
-                            </div>
-                        </div>
-                        <div class="btn-discount">${hasDiscount ? `-${product.discountPercent.toLocaleString()}%` : ''}</div>
-                    </div>
-                </div>
-            `;
-            slideContent.innerHTML += productCard;
-        });
-
-        carouselItem.appendChild(slideContent);
-        carouselInner.appendChild(carouselItem);
-    }
-
-    carouselContainer.appendChild(carouselInner);
-
-    return carouselContainer;
-}
-
-
-
 //hien thi san pham
 function displayProducts(productList, categoryName) {
     var itemsPerPage = 12;
@@ -994,7 +922,7 @@ $(document).ready(function () {
         if (product.discountPrice < product.price) {
             modalContent += `
                 <div class="product-price-container">
-                    <div class="product-price"><strong>Giá bán:</strong> ${product.price.toLocaleString()}</div>
+                    <div class="product-price"><strong>Giá bán: </strong> ${product.price.toLocaleString()}</div>
                 </div>
             `;
         } else {
@@ -1003,7 +931,7 @@ $(document).ready(function () {
             if (!isNaN(discountPercent)) {
                 modalContent += `
                     <div class="product-price-container">
-                        <div class="product-discount"><strong>Giá gốc:</strong>${product.discountPrice.toLocaleString()} </div>
+                        <div class="product-discount"><strong>Giá gốc:</strong> ${product.discountPrice.toLocaleString()} </div>
                         <div class="product-price"><strong>Giá khuyến mãi:</strong> ${product.price.toLocaleString()}  </div>
                         <div class="btn-discount"><strong>Giảm giá:</strong> ${discountPercent}%</div>
                     </div>
@@ -1127,7 +1055,7 @@ $(document).ready(function () {
                     <div class="alert alert-primary alert-dismissible fade show" role="alert">
                         <strong>${quantity} x ${name}</strong> đã được mua với giá ${price} VND.
                         <br>
-                        <strong>Total: ${quantity*price}</strong>
+                        <strong>Total: ${(quantity*price).toLocaleString()}</strong>
                         <p>Đang chuyển hướng sang trang thanh toán</p>
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
