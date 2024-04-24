@@ -19,24 +19,7 @@
     <script src="./js/bootstrap.min.js"></script>
     <script src="./js/getdatenow.js"></script>
     <script src="./js/sanpham.js"></script>
-    <script>
-        $(document).ready(function () {
-            // Lọc các sản phẩm bán chạy (discountPercent > 30%)
-            const bestSellers = filterBestSellers(productList);
-
-            // Tạo carousel cho các sản phẩm bán chạy và chèn vào trang web
-            const bestSellersCarousel = generateBestSellersCarousel(bestSellers);
-            const containerElement = document.getElementById('bestSellersCarouselContainer');
-            containerElement.appendChild(bestSellersCarousel);
-
-            // Kích hoạt carousel bằng JavaScript
-            $('#bestSellersCarousel').carousel({
-                interval: 3000 // Đặt khoảng thời gian chuyển slide (ở đây là 3000ms = 3 giây)
-            });
-
-
-        });
-    </script>
+    
 </head>
 
 <body>
@@ -89,12 +72,12 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto" id="nav-menu-link">
                 <li class="nav-item active">
-                    <a class="nav-link" href="./html/home.html"><i class="fa fa-home" aria-hidden="true"></i> TRANG
+                    <a class="nav-link" href="./index.html"><i class="fa fa-home" aria-hidden="true"></i> TRANG
                         CHỦ</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="./html/demoShope.html"><i class="fa fa-shop" aria-hidden="true"></i> CỬA
+                    <a class="nav-link" href="./html/shop.html"><i class="fa fa-shop" aria-hidden="true"></i> CỬA
                         HÀNG</a>
                 </li>
 
@@ -211,7 +194,10 @@
     </div>
     <!-- end caroseal -->
 
-    <div class="container-fluid border">
+   
+
+    <!-- sản phẩm bán chạy -->
+    <div class="container-fluid">
         <form class="my-4">
             <fieldset class="p-4">
                 <legend class="text-center">
@@ -267,8 +253,31 @@
                             <div class="btn-discount">-30%</div>
                         </div>
                     </div>
+                    
+                     <!-- SP3 -->
+                     <div class="col-md-4 col-lg-3 col-6 mb-3">
+                        <div class="product-card" data-category="Mũ lật cằm ">
+                            <img src="./images/mbh_latcam/latcam03.jpg" alt="Mũ lật cằm - Mẫu 3" class="product-image img-fluid ">
+                            <div class="product-content d-flex flex-column ">
+                                <div class="product-title text-center">Mũ lật cằm - Mẫu 3</div>
+                                <div class="product-description">Mũ bảo hiểm lật cằm chất lượng, bảo vệ an toàn cho người sử dụng.</div>
+                                <ul id="vote-5-star" class="mr-0">
+                                    <li class="list-inline-item"><i class="fa fa-star text-warning"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star text-warning"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star text-warning"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star text-warning"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star text-warning"></i></li>
+                                </ul>
+                                <div class="product-price-container">
+                                    <div class="product-discount">590.000 VND</div>
+                                    <div class="product-price">472.000 VND</div>
+                                </div>
+                            </div>
+                            <div class="btn-discount">-20%</div>
+                        </div>
+                    </div>
 
-                    <!-- sp3 -->
+                    <!-- sp4 -->
                     <div class="col-md-4 col-lg-3 col-6 mb-3">
                         <div class="product-card" data-category="Mũ Fullface">
                             <img src="./images/mbh_fullface/full05.jpg" alt="Mũ Fullface - Mẫu 5" class="product-image img-fluid ">
@@ -291,48 +300,30 @@
                         </div>
                     </div>
                 
-                    <!-- SP4 -->
-                    <div class="col-md-4 col-lg-3 col-6 mb-3">
-                        <div class="product-card" data-category="Mũ 1/2">
-                            <img src="./images/mbh_12/mu12_06.png" alt="Mũ 1/2 - Mẫu 6" class="product-image img-fluid ">
-                            <div class="product-content d-flex flex-column ">
-                                <div class="product-title text-center">Mũ 1/2 - Mẫu 6</div>
-                                <div class="product-description">Mũ bảo hiểm loại 1/2 đầu, bền bỉ và an toàn khi sử dụng.</div>
-                                <ul id="vote-5-star" class="mr-0">
-                                    <li class="list-inline-item"><i class="fa fa-star text-warning"></i></li>
-                                    <li class="list-inline-item"><i class="fa fa-star text-warning"></i></li>
-                                    <li class="list-inline-item"><i class="fa fa-star text-warning"></i></li>
-                                    <li class="list-inline-item"><i class="fa fa-star text-warning"></i></li>
-                                    <li class="list-inline-item"><i class="fa fa-star text-warning"></i></li>
-                                </ul>
-                                <div class="product-price-container">
-                                    <div class="product-discount">420.000 VND</div>
-                                    <div class="product-price">294.000 VND</div>
-                                </div>
-                            </div>
-                            <div class="btn-discount">-30%</div>
-                        </div>
-                    </div>
+                   
                 </div>
             </fieldset>
         </form>
     </div>
 
-    
+    <div class="container">
+
+    </div>
+    .
     
 
     <div class="container-fluid">
         <!-- Danh mục sản phảm theo icon -->
         <div class="row mt-5">
-            <div class="col-lg col-md-3 col-sm-6 col-6 mt-2">
+            <div class="col-lg col-md-3 col-sm-6 col mt-2">
                 <div class="home-category">
                     <div class="home-category-img">
-                        <a href="#">
+                        <a href="./html/mu34.html">
                             <img class="img-fluid" src="./images/mbh_34/mu34_01.jpg" alt="mu3-4">
                         </a>
                     </div>
                     <div class="home-category-title text-center">
-                        <a href="#">Mũ 3/4</a>
+                        <a href="./html/mu34.html">Mũ 3/4</a>
                     </div>
                 </div>
             </div>
@@ -341,12 +332,12 @@
             <div class="col-lg col-md-3 col-sm-6 col-6 mt-2">
                 <div class="home-category">
                     <div class="home-category-img">
-                        <a href="#">
-                            <img class="img-fluid" src="./images/mbh_fullface/full01.jpg" alt="mu3-4">
+                        <a href="./html/mufull.html">
+                            <img class="img-fluid" src="./images/mbh_fullface/full01.jpg" alt="mufull">
                         </a>
                     </div>
                     <div class="home-category-title text-center">
-                        <a href="#">Mũ Fullface</a>
+                        <a href="./html/mufull.html">Mũ Fullface</a>
                     </div>
                 </div>
             </div>
@@ -354,12 +345,12 @@
             <div class="col-lg col-md-3 col-sm-6 col-6 mt-2">
                 <div class="home-category">
                     <div class="home-category-img">
-                        <a href="#">
+                        <a href="./html/mu12.html">
                             <img class="img-fluid" src="./images/mbh_12/mu12_01.png" alt="mu 1/2">
                         </a>
                     </div>
                     <div class="home-category-title text-center">
-                        <a href="#">Mũ 1/2</a>
+                        <a href="./html/mu12.html">Mũ 1/2</a>
                     </div>
                 </div>
             </div>
@@ -367,12 +358,12 @@
             <div class="col-lg col-md-3 col-sm-6 col-6 mt-2">
                 <div class="home-category">
                     <div class="home-category-img">
-                        <a href="#">
+                        <a href="./html/mulatcam.html">
                             <img class="img-fluid" src="./images/mbh_latcam/latcam01.jpg" alt="mu lat cam">
                         </a>
                     </div>
                     <div class="home-category-title text-center">
-                        <a href="#">Mũ lật cầm</a>
+                        <a href="./html/mulatcam.html">Mũ lật cầm</a>
                     </div>
                 </div>
             </div>
@@ -380,12 +371,12 @@
             <div class="col-lg col-md-3 col-sm-6 col-6 mt-2">
                 <div class="home-category">
                     <div class="home-category-img">
-                        <a href="#">
+                        <a href="./html/mutreme.html">
                             <img class="img-fluid" src="./images/mbh_treem/treem01.jpg" alt="mu tre em">
                         </a>
                     </div>
                     <div class="home-category-title text-center">
-                        <a href="#">Mũ trẻ em</a>
+                        <a href="./html/mutreme.html">Mũ trẻ em</a>
                     </div>
                 </div>
             </div>
@@ -393,12 +384,12 @@
             <div class="col-lg col-md-3 col-sm-6 col-6 mt-2">
                 <div class="home-category">
                     <div class="home-category-img">
-                        <a href="#">
+                        <a href="./html/muxedap.html">
                             <img class="img-fluid" src="./images/mbh_xedap/muxedap01.jpg" alt="mu xe dap">
                         </a>
                     </div>
                     <div class="home-category-title text-center">
-                        <a href="#">Mũ xe đạp</a>
+                        <a href="./html/muxedap.html">Mũ xe đạp</a>
                     </div>
                 </div>
             </div>
@@ -406,12 +397,12 @@
             <div class="col-lg col-md-3 col-sm-6 col-6 mt-2">
                 <div class="home-category">
                     <div class="home-category-img">
-                        <a href="#">
+                        <a href="./html/kinhmubaohiem.html">
                             <img class="img-fluid" src="./images/mbh_kinh/kinh01.jpg" alt="kinh xe">
                         </a>
                     </div>
                     <div class="home-category-title text-center">
-                        <a href="#">Kính mũ bảo hiểm</a>
+                        <a href="./html/kinhmubaohiem.html">Kính mũ bảo hiểm</a>
                     </div>
                 </div>
             </div>

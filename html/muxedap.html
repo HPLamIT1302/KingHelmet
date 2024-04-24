@@ -1,92 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mũ xe đạp</title>
+    <title>Mũ xe đạp | KingHelmet</title>
+    <link rel="icon" href="../images/img/logokinghelmet.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../images/img/logokinghelmet.png" type="image/x-icon">
+    
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/all.css">
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../css/product.css">
+
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/sanpham.js"></script>
     
 </head>
+
 <body>
 
+
     <div class="container">
+        <div id="top"></div>
+        
+
         <div id="productList" class="row">
             <!-- Đây là nơi để hiển thị danh sách sản phẩm -->
         </div>
+        <ul id="pagination" class="pagination justify-content-center">
+            <!-- Đây là nơi để hiển thị thanh phân trang -->
+        </ul>
     </div>
 
-<!-- Modal -->
-<div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="productModalLabel">Thông tin sản phẩm</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body" id="productModalBody">
-                <!-- Nội dung sản phẩm sẽ được cập nhật bằng JavaScript -->
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                <button type="button" class="btn btn-primary">Thêm vào giỏ hàng</button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title w-100 text-center" id="productModalLabel">Thông tin sản phẩm</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="productModalBody">
+                    <!-- Nội dung sản phẩm sẽ được cập nhật bằng JavaScript -->
+                </div>
+                <div id="alertContainer"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                   
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
-<!-- jQuery and Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<!-- Custom JavaScript -->
-<script src="../js/sanpham.js"></script>
-<script>
-$(document).ready(function() {
-    //duyet san pham theo ten danh muc
-    displayProductsByCategory('Mũ xe đạp');
+   
 
-    // Xử lý sự kiện khi nhấp vào nút "Mua ngay"
-    $(document).on('click', '.btn-buy-now', function() {
-        var name = $(this).data('name');
-        var price = $(this).data('price');
-
-        // Thực hiện các hành động để thêm sản phẩm vào giỏ hàng
-        addToCart(name, price);
-    });
-
-    // Hàm thêm sản phẩm vào giỏ hàng
-    function addToCart(name, price) {
-        // Thực hiện các hành động để thêm sản phẩm vào giỏ hàng
-        console.log('Đã thêm sản phẩm', name, 'vào giỏ hàng với giá', price);
-    }
-
-    // Xử lý sự kiện khi nhấp vào nút "Xem thêm" để hiển thị modal
-    $('.btn-view-more').click(function() {
-        var name = $(this).data('name');
-        var image = $(this).data('image');
-        var category = $(this).data('category');
-        var description = $(this).data('description');
-        var discountPrice = $(this).data('discount-price');
-        var price = $(this).data('price');
-
-        $('#productModalLabel').text(name);
-        $('#productModalBody').html(`
-            <img src="${image}" alt="${name}" class="img-fluid mb-3">
-            <p><strong>Loại sản phẩm:</strong> ${category}</p>
-            <p><strong>Mô tả:</strong> ${description}</p>
-            <p><strong>Giá khuyến mãi:</strong> ${discountPrice}</p>
-            <p><strong>Giá gốc:</strong> ${price}</p>
-        `);
-    });
-});
-</script>
-
+    
+    <!-- Custom JavaScript -->
+   
+    <script>
+        $(document).ready(function () {
+            displayProducts(productList, 'Mũ xe đạp');
+        });
+    </script>
 </body>
+
 </html>
