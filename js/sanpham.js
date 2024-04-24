@@ -882,8 +882,8 @@ function displayProductsByCategory(categoryName) {
         var hasDiscount = product.discountPercent > 0;
 
         var productHtml = `
-                <div class="col-md-4 col-lg-3 col-6 mb-3">
-                    <div class="product-card" data-category="${product.category}">
+                <div class="col-md-4 col-lg-3 col-6">
+                    <div class="product-card">
                         <img src="${product.image}" alt="${product.name}" class="product-image img-fluid ">
                         <div class="product-content d-flex flex-column ">
                             <div class="product-title">${product.name}</div>
@@ -942,15 +942,14 @@ function displayProducts(productList) {
             var hasDiscount = product.discountPercent > 0;
 
             var productHtml = `
-                
                 <div class="col-md-4 col-lg-3 col-6 mb-3">
-                    <div class="product-card" data-category="${product.category}">
+                    <div class="product-card" data-category="${product.category}" data-details="${product.details}" >
                         <img src="${product.image}" alt="${product.name}" class="product-image img-fluid">
                         <div class="product-content d-flex flex-column ">
                             <div class="product-title">${product.name}</div>
                             <div class="product-description">${product.description}</div>
                             <div class="product-price-container">
-                                ${hasDiscount ? `<div class="product-discount" ${product.price.toLocaleString()} VND</div>` : ''}
+                                ${hasDiscount ? `<div class="product-discount">${product.price.toLocaleString()} VND</div>` : ''}
                                 <div class="product-price">${discountPrice.toLocaleString()} VND</div>
                             </div>
                         </div>
@@ -1009,6 +1008,7 @@ function displayProducts(productList) {
 $(document).ready(function () {
     // Sự kiện click vào .product-card
     $(document).on('click', '.product-card', function() {
+       
         var product = {
             name: $(this).find('.product-title').text(),
             image: $(this).find('.product-image').attr('src'),
@@ -1016,7 +1016,8 @@ $(document).ready(function () {
             description: $(this).find('.product-description').text(),
             discountPrice: $(this).find('.product-discount').text().trim(), // Giá sau khi giảm giá
             price: $(this).find('.product-price').text().trim(), // Giá bán
-            discountPercent: $(this).find('.btn-discount').text().trim() // Phần trăm giảm giá
+            discountPercent: $(this).find('.btn-discount').text().trim(), // Phần trăm giảm giá
+            details: $(this).data('productDetails')   // Thêm chi tiết sản phẩm từ data-details
         };
 
         // Gọi hàm hiển thị modal và thông tin sản phẩm
@@ -1061,8 +1062,8 @@ $(document).ready(function () {
             if (!isNaN(discountPercent)) {
                 modalContent += `
                     <div class="product-price-container">
-                        <div class="product-discount"><strong>Giá gốc: </strong>${product.discountPrice.toLocaleString()} </div>
-                        <div class="product-price"><strong>Giá khuyến mãi: </strong> ${product.price.toLocaleString()}  </div>
+                        <div class="product-discount"><strong>Giá gốc:</strong>${product.discountPrice.toLocaleString()} </div>
+                        <div class="product-price"><strong>Giá khuyến mãi:</strong> ${product.price.toLocaleString()}  </div>
                         <div class="btn-discount"><strong>Giảm giá:</strong> ${discountPercent}%</div>
                     </div>
                 `;
