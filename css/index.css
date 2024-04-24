@@ -125,11 +125,11 @@ fieldset {
     margin: 0 auto; /* Canh giữa fieldset trong layout */
 
     border: 20px solid royalblue;
-    border-radius: 50px;
+    /* border-radius: 50px; */
 }
 
 legend {
-    text-align: center; /* Căn giữa nội dung theo chiều ngang */
+    /* text-align: center; Căn giữa nội dung theo chiều ngang */
     width: fit-content;
     /* background-color: #f8f9fa;  */
     font-size: 24px;
@@ -137,4 +137,7 @@ legend {
     color: #0099e5;
     padding-left: 20px;
     padding-right: 20px;
+}
+#vote-5-star .list-inline-item:not(:last-child){
+    margin-right: 0;
 }

@@ -840,6 +840,13 @@ function generateBestSellersCarousel(products) {
                         <div class="product-content d-flex flex-column ">
                             <div class="product-title text-center">${product.name}</div>
                             <div class="product-description">${product.description}</div>
+                            <ul id="vote-5-star" class="mr-0">
+                                <li class="list-inline-item"><i class="fa fa-star text-warning"></i></li>
+                                <li class="list-inline-item"><i class="fa fa-star text-warning"></i></li>
+                                <li class="list-inline-item"><i class="fa fa-star text-warning"></i></li>
+                                <li class="list-inline-item"><i class="fa fa-star text-warning"></i></li>
+                                <li class="list-inline-item"><i class="fa fa-star text-warning"></i></li>
+                            </ul>
                             <div class="product-price-container">
                                 ${hasDiscount ? `<div class="product-discount">${product.price.toLocaleString()} VND</div>` : ''}
                                 <div class="product-price">${discountPrice.toLocaleString()} VND</div>
@@ -861,21 +868,7 @@ function generateBestSellersCarousel(products) {
     return carouselContainer;
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    
-    // Lọc các sản phẩm bán chạy (discountPercent > 30%)
-    const bestSellers = filterBestSellers(productList);
 
-    // Tạo carousel cho các sản phẩm bán chạy và chèn vào trang web
-    const bestSellersCarousel = generateBestSellersCarousel(bestSellers);
-    const containerElement = document.getElementById('bestSellersCarouselContainer');
-    containerElement.appendChild(bestSellersCarousel);
-
-    // Kích hoạt carousel bằng JavaScript
-    $('#bestSellersCarousel').carousel({
-        interval: 3000 // Đặt khoảng thời gian chuyển slide (ở đây là 3000ms = 3 giây)
-    });
-});
 
 
 
@@ -956,7 +949,7 @@ function displayProducts(productList) {
             var hasDiscount = product.discountPercent > 0;
 
             var productHtml = `
-                <div id="top"></div>
+                
                 <div class="col-md-4 col-lg-3 col-6 mb-3">
                     <div class="product-card" data-category="${product.category}">
                         <img src="${product.image}" alt="${product.name}" class="product-image img-fluid">
