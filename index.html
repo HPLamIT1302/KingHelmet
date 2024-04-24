@@ -5,20 +5,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KingHelmet</title>
-    <link rel="icon" href="./images/img/logokinghelmet.png" type="image/x-icon">
-    <link rel="shortcut icon" href="./images/img/logokinghelmet.png" type="image/x-icon">
+    <link rel="icon" href="../images/img/logokinghelmet.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../images/img/logokinghelmet.png" type="image/x-icon">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/all.css">
-    <link rel="stylesheet" href="./css/index.css">
-    <link rel="stylesheet" href="./css/product.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/all.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/product.css">
 
     <!-- js -->
-    <script src="./js/jquery-3.7.1.min.js"></script>
-    <script src="./js/bootstrap.min.js"></script>
-    <script src="./js/getdatenow.js"></script>
-    <script src="./js/sanpham.js"></script>
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/getdatenow.js"></script>
+    <script src="../js/sanpham.js"></script>
+    <script>
+        $(document).ready(function () {
+    // Lọc các sản phẩm bán chạy (discountPercent > 30%)
+    const bestSellers = filterBestSellers(productList);
+
+    // Tạo carousel cho các sản phẩm bán chạy và chèn vào trang web
+    const bestSellersCarousel = generateBestSellersCarousel(bestSellers);
+    const containerElement = document.getElementById('bestSellersCarouselContainer');
+    containerElement.appendChild(bestSellersCarousel);
+
+    // Kích hoạt carousel bằng JavaScript
+    $('#bestSellersCarousel').carousel({
+        interval: 3000 // Đặt khoảng thời gian chuyển slide (ở đây là 3000ms = 3 giây)
+    });
+});
+    </script>
 </head>
 
 <body>
@@ -589,21 +605,5 @@
 
 </body>
 
-<script>
-    $(document).ready(function () {
-        // Lọc các sản phẩm bán chạy (discountPercent > 30%)
-        const bestSellers = filterBestSellers(productList);
-
-        // Tạo carousel cho các sản phẩm bán chạy và chèn vào trang web
-        const bestSellersCarousel = generateBestSellersCarousel(bestSellers);
-        const containerElement = document.getElementById('bestSellersCarouselContainer');
-        containerElement.appendChild(bestSellersCarousel);
-
-        // Kích hoạt carousel bằng JavaScript
-        $('#bestSellersCarousel').carousel({
-            interval: 3000 // Đặt khoảng thời gian chuyển slide (ở đây là 3000ms = 3 giây)
-        });
-    });
-</script>
 
 </html>

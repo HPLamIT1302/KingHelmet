@@ -869,13 +869,6 @@ function generateBestSellersCarousel(products) {
 }
 
 
-
-
-
-
-
-
-
 // Function displayProductsByCategory
 function displayProductsByCategory(categoryName) {
     var filteredProducts = productList.filter(function (product) {
@@ -889,7 +882,7 @@ function displayProductsByCategory(categoryName) {
         var hasDiscount = product.discountPercent > 0;
 
         var productHtml = `
-                <div class="col-md-4 col-lg-3 col-6">
+                <div class="col-md-4 col-lg-3 col-6 mb-3">
                     <div class="product-card" data-category="${product.category}">
                         <img src="${product.image}" alt="${product.name}" class="product-image img-fluid ">
                         <div class="product-content d-flex flex-column ">
