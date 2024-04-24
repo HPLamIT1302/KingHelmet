@@ -390,7 +390,7 @@ var productList = [
     },
 
     // Mũ lật cầm
-     {
+    {
         name: "Mũ lật cằm - Mẫu 1",
         image: "../images/mbh_latcam/latcam01.jpg",
         category: "Mũ lật cằm",
@@ -707,7 +707,7 @@ var productList = [
             "- Trọng lượng: 350 gram",
             "- Size: Freesize (58 - 60) - có hệ thống Roc - Lock dễ dàng tăng chỉnh vòng đầu."
         ]
-    },    
+    },
 
     // kinh mũ bao hiẻm
     {
@@ -876,7 +876,7 @@ function displayProducts(productList, categoryName) {
     var currentPage = 1;
 
     // Lọc danh sách sản phẩm theo danh mục nếu categoryName không phải là 'all'
-    var filteredProducts = categoryName === 'all' ? productList : productList.filter(function(product) {
+    var filteredProducts = categoryName === 'all' ? productList : productList.filter(function (product) {
         return product.category === categoryName;
     });
 
@@ -930,7 +930,7 @@ function displayProducts(productList, categoryName) {
     renderProducts(currentPage);
 
     // Handle pagination click
-    $(document).on('click', '#pagination .page-link', function(e) {
+    $(document).on('click', '#pagination .page-link', function (e) {
         e.preventDefault();
         currentPage = $(this).data('page');
         renderProducts(currentPage);
@@ -938,187 +938,18 @@ function displayProducts(productList, categoryName) {
         $('html, body').animate({ scrollTop: $('#top').offset().top }, 'slow');
     });
 
-    // Handle "Mua ngay" button click
-    $(document).on('click', '.btn-buy-now', function() {
-        var name = $(this).data('name');
-        var price = $(this).data('price');
-        addToCart(name, price);
-    });
-
-    function addToCart(name, price) {
-        console.log('Đã thêm sản phẩm', name, 'vào giỏ hàng với giá', price);
-    
-        // Tạo một phần tử div để đại diện cho thông báo alert
-        var alertDiv = document.createElement('div');
-        alertDiv.className = 'alert alert-primary'; // Áp dụng lớp CSS alert-primary
-    
-        // Tạo nội dung cho alert (trong trường hợp này là strong tag)
-        alertDiv.innerHTML = `<strong>${name}</strong> đã được thêm vào giỏ hàng với giá ${price}`;
-    
-        // Chèn phần tử alert vào trang web (ví dụ: sau một phần tử có id là 'cartContainer')
-        var cartContainer = document.getElementById('cartContainer');
-        if (cartContainer) {
-            cartContainer.appendChild(alertDiv);
-        } else {
-            console.error('Không tìm thấy phần tử có id là "cartContainer"');
-        }
-    
-        // Sau một khoảng thời gian, bạn có thể muốn xóa thông báo alert (ví dụ: sau 3 giây)
-        setTimeout(function() {
-            if (cartContainer && alertDiv) {
-                cartContainer.removeChild(alertDiv);
-            }
-        }, 3000); // Xóa alert sau 3 giây (3000 milliseconds)
-    }
-    
 }
 
 
 
-/*
-// Function displayProductsByCategory
-function displayProductsByCategory(categoryName) {
-    var filteredProducts = productList.filter(function (product) {
-        return product.category === categoryName;
-    });
-
-    var productListHtml = '';
-
-    filteredProducts.forEach(function (product) {
-        var discountPrice = product.price * (1 - product.discountPercent / 100);
-        var hasDiscount = product.discountPercent > 0;
-
-        var productHtml = `
-                <div class="col-md-4 col-lg-3 col-6">
-                    <div class="product-card">
-                        <img src="${product.image}" alt="${product.name}" class="product-image img-fluid ">
-                        <div class="product-content d-flex flex-column ">
-                            <div class="product-title">${product.name}</div>
-                            <div class="product-description">${product.description}</div>
-                            <div class="product-price-container">
-                                ${hasDiscount ? `<div class="product-discount">${product.price.toLocaleString()} VND</div>` : ''}
-                                <div class="product-price">${discountPrice.toLocaleString()} VND</div>
-                            </div>
-                        </div>
-                        <div class="product-actions">
-                            <button class="btn btn-primary btn-sm btn-view-more" data-toggle="modal" data-target="#productModal"
-                                data-name="${product.name}" data-image="${product.image}" data-category="${product.category}"
-                                data-description="${product.description}" data-discount-price="${discountPrice.toLocaleString()} VND"
-                                data-price="${product.price.toLocaleString()} VND">Xem thêm</button>
-                            <button class="btn btn-success btn-sm btn-buy-now" data-name="${product.name}" data-price="${discountPrice}">Mua ngay</button>
-                        </div>
-                        <div class="btn-discount">${hasDiscount ? `${product.discountPercent.toLocaleString()}-%` : ''}</div>
-                    </div>
-                </div>
-            `;
-        productListHtml += productHtml;
-    });
-
-    $('#productList').html(productListHtml);
-    // Handle "Mua ngay" button click
-    $(document).on('click', '.btn-buy-now', function () {
-        var name = $(this).data('name');
-        var price = $(this).data('price');
-        addToCart(name, price);
-    });
-
-    // Add product to cart function
-    function addToCart(name, price) {
-        console.log('Đã thêm sản phẩm', name, 'vào giỏ hàng với giá', price);
-    }
-
-    
-}
-
-// Define function to handle products display and interactions
-function displayProducts(productList) {
-    var itemsPerPage = 12;
-    var currentPage = 1;
-
-    // Function to render products based on pagination
-    function renderProducts(page) {
-        $('#productList').empty();
-
-        var startIndex = (page - 1) * itemsPerPage;
-        var endIndex = Math.min(startIndex + itemsPerPage, productList.length);
-        var productListHtml = '';
-
-        for (var i = startIndex; i < endIndex; i++) {
-            var product = productList[i];
-            var discountPrice = product.price * (1 - product.discountPercent / 100);
-            var hasDiscount = product.discountPercent > 0;
-            var details = product.details;
-
-            var productHtml = `
-                <div class="col-md-4 col-lg-3 col-6 mb-3">
-                    <div class="product-card" data-category="${product.category}" data-details="${product.details.toLocaleString()}" >
-                        <img src="${product.image}" alt="${product.name}" class="product-image img-fluid">
-                        <div class="product-content d-flex flex-column ">
-                            <div class="product-title">${product.name}</div>
-                            <div class="product-description">${product.description}</div>
-                            <div class="product-price-container">
-                                ${hasDiscount ? `<div class="product-discount">${product.price.toLocaleString()} VND</div>` : ''}
-                                <div class="product-price">${discountPrice.toLocaleString()} VND</div>
-                            </div>
-                        </div>
-                        <div class="btn-discount ${hasDiscount ? '' : 'd-none'}">${hasDiscount ? `-${product.discountPercent.toLocaleString()}%` : ''}</div>
-
-                    </div>
-                </div>
-            `;
-
-            productListHtml += productHtml;
-        }
-
-        $('#productList').html(productListHtml);
-
-        // Create pagination
-        var totalPages = Math.ceil(productList.length / itemsPerPage);
-        $('#pagination').empty();
-        for (var i = 1; i <= totalPages; i++) {
-            var activeClass = i === currentPage ? 'active' : '';
-            $('#pagination').append(`
-                <li class="page-item ${activeClass}"><a class="page-link" href="#" data-page="${i}">${i}</a></li>
-            `);
-        }
-    }
-
-    // Display initial products
-    renderProducts(currentPage);
-
-    // Handle pagination click
-    $(document).on('click', '#pagination .page-link', function (e) {
-        e.preventDefault();
-        currentPage = $(this).data('page');
-        renderProducts(currentPage);
-         // Scroll to top of the page
-     $('html, body').animate({ scrollTop: $('#top').offset().top }, 'slow');
-    });
-
-    // Handle "Mua ngay" button click
-    $(document).on('click', '.btn-buy-now', function () {
-        var name = $(this).data('name');
-        var price = $(this).data('price');
-        addToCart(name, price);
-    });
-
-    // Add product to cart function
-    function addToCart(name, price) {
-        console.log('Đã thêm sản phẩm', name, 'vào giỏ hàng với giá', price);
-    }
 
 
-}
-
-*/
-
-
-// Khai báo hàm khi tài liệu đã sẵn sàng
+// Khai báo hàm khi tài liệu đã sẵn sàng hiển thị modal
 $(document).ready(function () {
     // Sự kiện click vào .product-card
-    $(document).on('click', '.product-card', function() {
-       
-       
+    $(document).on('click', '.product-card', function () {
+
+
         var product = {
             name: $(this).find('.product-title').text(),
             image: $(this).find('.product-image').attr('src'),
@@ -1191,63 +1022,131 @@ $(document).ready(function () {
                 </span>
             </div>
             <button class="btn btn-info btn-sm btn-add-to-cart mt-3" data-name="${product.name}" data-price="${product.price}">Thêm vào giỏ hàng</button>
-            <button class="btn btn-success btn-sm btn-buy-now mt-3" data-name="${product.name}" data-price="${product.discountPrice || product.price}">Mua ngay</button>
+            <button class="btn btn-success btn-sm btn-buy-now mt-3" data-name="${product.name}" data-price="${product.price}">Mua ngay</button>
         </div>
         </div>`;
 
         $('#productModalBody').html(modalContent);
         $('#productModal').modal('show');
+        // xử lý các nút bấm
 
+        // Xử lý sự kiện click nút thêm số lượng
+        $(document).on('click', '.btn-plus', function () {
+            var input = $(this).closest('.input-group').find('input.product-quantity');
+            var value = parseInt(input.val());
+            input.val(value + 1);
+        });
 
-    
         // Xử lý sự kiện click nút trừ số lượng
         $(document).on('click', '.btn-minus', function () {
-            var input = $(this).closest('.input-group').find('input');
+            var input = $(this).closest('.input-group').find('input.product-quantity');
             var value = parseInt(input.val());
             if (value > 1) {
                 input.val(value - 1);
             }
         });
-    
-        // Xử lý sự kiện click nút thêm số lượng
-        $(document).on('click', '.btn-plus', function () {
-            var input = $(this).closest('.input-group').find('input');
-            var value = parseInt(input.val());
-            input.val(value + 1);
-        });
-    
-        // Xử lý sự kiện click nút "Thêm vào giỏ hàng"
+
+        // Handle "Thêm vào giỏ hàng" button click
         $(document).on('click', '.btn-add-to-cart', function () {
-            var productName = $(this).data('name');
-            var productPrice = parseFloat($(this).data('price'));
+            var name = $(this).data('name');
+            var priceString = $(this).data('price');
+
+            // Loại bỏ dấu chấm và dấu phân cách hàng nghìn (nếu có)
+            var priceCleaned = priceString.replace(/\./g, '');
+
+            // Chuyển đổi chuỗi thành số nguyên
+            var price = parseInt(priceCleaned);
+
             var quantity = parseInt($(this).closest('.col-12').find('.product-quantity').val());
-    
-            addToCart(productName, productPrice, quantity);
-    
-            // Đóng modal sau khi thêm vào giỏ hàng
-            $('#productModal').modal('hide');
+
+
+            // Hiển thị thông báo khi sản phẩm được thêm vào giỏ hàng
+            displayAddToCartAlert(name, price, quantity);
+
+            // Thêm sản phẩm vào giỏ hàng
+            addToCart(name, price, quantity);
         });
-    
-        // Xử lý sự kiện click nút "Mua ngay"
-        $(document).on('click', '.btn-buy-now', function () {
-            var productName = $(this).data('name');
-            var productPrice = parseFloat($(this).data('price'));
-            var quantity = parseInt($(this).closest('.col-12').find('.product-quantity').val());
-    
-            addToCart(productName, productPrice, quantity);
-    
-            // Đóng modal sau khi thêm vào giỏ hàng
-            $('#productModal').modal('hide');
-        });
-    
-        // Hàm thêm sản phẩm vào giỏ hàng
-        function addToCart(name, price, quantity) {
-            console.log(`Đã thêm ${quantity} sản phẩm ${name} vào giỏ hàng với giá ${price * quantity} VND`);
-            // Thêm logic xử lý thêm sản phẩm vào giỏ hàng ở đây
+
+        // Function to display add to cart alert
+        function displayAddToCartAlert(name, price, quantity) {
+            var alertHtml = `
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>${quantity} x ${name}</strong> đã được thêm vào giỏ hàng với đơn giá ${price} VND.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            `;
+
+            // Hiển thị thông báo trong phần tử có id là 'alertContainer'
+            $('#alertContainer').html(alertHtml);
+
+            // Tự động đóng thông báo sau 10 giây
+            setTimeout(function () {
+                $('.alert').alert('close');
+            }, 10000); // 10 giây
         }
+        function addToCart(name, price, quantity) {
+            const total = quantity * price;
+            console.log('Đã thêm! chưa xử lỹ code này ở js.sanpham.js line 1082');
+            console.log(name + " với giá: " + price + " và số lượng: " + quantity + "- Thành tiền: " + total);
+        }
+
+        // Handle "Mua ngay" button click
+        $(document).on('click', '.btn-buy-now', function () {
+            var name = $(this).data('name');
+            var priceString = $(this).data('price');
+
+            // Loại bỏ dấu chấm và dấu phân cách hàng nghìn (nếu có)
+            var priceCleaned = priceString.replace(/\./g, '');
+
+            // Chuyển đổi chuỗi thành số nguyên
+            var price = parseInt(priceCleaned);
+
+            var quantity = parseInt($(this).closest('.col-12').find('.product-quantity').val());
+
+            // Hiển thị thông báo chuyển hướng sang trang thanh toán
+            displayCheckoutRedirectAlert(name, price, quantity);
+        });
+
+        // Function to display add to cart alert
+        function displayCheckoutRedirectAlert(name, price, quantity) {
+            console.log('Giá:', price);
+            console.log('Số lượng:', quantity);
+
+            try {
+                const total = quantity * price;
+                console.log('Sản phẩm:', name, 'với giá:', price, 'và số lượng:', quantity, '- Thành tiền:', total);
+            } catch (error) {
+                console.error('Lỗi khi tính tổng:', error);
+            }
+            console.log('Đã mua! chưa xử lỹ code này ở js.sanpham.js line 1082');
+
+
+            var alertHtml = `
+                    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                        <strong>${quantity} x ${name}</strong> đã được mua với giá ${price} VND.
+                        <br>
+                        <strong>Total: ${quantity*price}</strong>
+                        <p>Đang chuyển hướng sang trang thanh toán</p>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                `;
+
+            // Hiển thị thông báo trong phần tử có id là 'alertContainer'
+            $('#alertContainer').html(alertHtml);
+
+            // Tự động đóng thông báo sau 10 giây
+            setTimeout(function () {
+                $('.alert').alert('close');
+            }, 50000); // 10 giây
+        }
+
+
     }
-    
+
 });
 
-//  chuẩn bị sửa
 
