@@ -96,16 +96,13 @@ a{
 }
 
 
-
-.carousel-caption{
-    position:absolute;
-    top: 60%;
-}
-
 .carousel-caption {
     font-weight: bold;    
     /* text-transform: uppercase; */
-    text-shadow: 5px 5px 15px #000;
+    text-shadow: 5px 5px 5px black;
+    position:absolute;
+    top: 50%;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .custom-hr {
