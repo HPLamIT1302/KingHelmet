@@ -332,7 +332,6 @@
 
     <!-- Danh mục sản phảm theo icon -->
     <div class="container-fluid my-4" id="list-icon-category">
-
         <h3 class="display-4">DANH MỤC</h3>
 
         <div class="row">
@@ -437,150 +436,267 @@
             </div>
 
         </div>
+    </div>
 
+    <!-- flash sale - sản phẩm đang giảm giá -->
+    <div class="container-fluid p-3" id="flash-sale">
+        <div class="p-4" style="border: 5px dashed tomato;">
+        <h2 class="text-center display-4 ">Flash Sale - Sản phẩm giảm giá</h2>
+        <div class="row mb-3" id="flash-sale-top">
+            <div class="countdown-timer">
+                <div id="countdown"></div>
+            </div>
+            <div id="flash-sale-more">
+                <a href="#"><span>Xem thêm ></span></a>
+            </div>
 
-        <!-- Modal -->
-        <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h3 class="modal-title w-100 text-center" id="productModalLabel">Thông tin sản phẩm</h3>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+        </div>
+        <div class="row" id="flash-sale-main">
+            <div class="col-md-4 col-lg-2 col-6 mb-3">
+                <div class="product-card" data-category="Mũ Fullface">
+                    <img src="./images/mbh_fullface/full02.jpg" alt="Mũ Fullface - Mẫu 2" class="product-image img-fluid">
+                    <div class="product-content d-flex flex-column">
+                        <div class="product-title">Mũ Fullface - Mẫu 2</div>
+                        <div class="product-description">Mũ bảo hiểm Fullface với thiết kế hiện đại và đẳng cấp.</div>
+                        <div class="product-price-container">
+                            <div class="product-discount">820.000 VND</div>
+                            <div class="product-price">615.000 VND</div>
+                        </div>
                     </div>
-                    <div class="modal-body" id="productModalBody">
-                        <!-- Nội dung sản phẩm sẽ được cập nhật bằng JavaScript -->
-                    </div>
-                    <div id="alertContainer"></div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                    <div class="btn-discount ">-25%</div>
+                </div>
+            </div>
 
+            <div class="col-md-4 col-lg-2 col-6 mb-3">
+                <div class="product-card" data-category="Mũ 1/2">
+                    <img src="./images/mbh_12/mu12_08.png" alt="Mũ 1/2 - Mẫu 8" class="product-image img-fluid">
+                    <div class="product-content d-flex flex-column">
+                        <div class="product-title">Mũ 1/2 - Mẫu 8</div>
+                        <div class="product-description">Mũ bảo hiểm loại 1/2 đầu, thiết kế thời trang và phong cách.</div>
+                        <div class="product-price-container">
+                            <div class="product-discount">410.000 VND</div>
+                            <div class="product-price">184.500 VND</div>
+                        </div>
                     </div>
+                    <div class="btn-discount ">-55%</div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-lg-2 col-6 mb-3">
+                <div class="product-card" data-category="Mũ lật cằm">
+                    <img src="./images/mbh_latcam/latcam04.jpg" alt="Mũ lật cằm - Mẫu 4" class="product-image img-fluid">
+                    <div class="product-content d-flex flex-column">
+                        <div class="product-title">Mũ lật cằm - Mẫu 4</div>
+                        <div class="product-description">Mũ bảo hiểm lật cằm đẹp mắt, đảm bảo độ an toàn khi điều khiển xe.</div>
+                        <div class="product-price-container">
+                            <div class="product-discount">580.000 VND</div>
+                            <div class="product-price">348.000 VND</div>
+                        </div>
+                    </div>
+                    <div class="btn-discount ">-40%</div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-lg-2 col-6 mb-3">
+                <div class="product-card" data-category="Mũ Fullface">
+                    <img src="./images/mbh_fullface/full07.png" alt="Mũ Fullface - Mẫu 7" class="product-image img-fluid">
+                    <div class="product-content d-flex flex-column">
+                        <div class="product-title">Mũ Fullface - Mẫu 7</div>
+                        <div class="product-description">Mũ bảo hiểm Fullface dành cho những tay đua chuyên nghiệp và đam mê thể thao xe đạp.</div>
+                        <div class="product-price-container">
+                            <div class="product-discount">820.000 VND</div>
+                            <div class="product-price">656.000 VND</div>
+                        </div>
+                    </div>
+                    <div class="btn-discount ">-20%</div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-lg-2 col-6 mb-3">
+                <div class="product-card" data-category="Mũ 3/4">
+                    <img src="./images/mbh_34/mu34_03.jpg" alt="Mũ 3/4 - Mẫu 3" class="product-image img-fluid">
+                    <div class="product-content d-flex flex-column">
+                        <div class="product-title">Mũ 3/4 - Mẫu 3</div>
+                        <div class="product-description">Mũ bảo hiểm loại 3/4 đầu, màu sắc tươi sáng, bảo vệ an toàn khi đi xe.</div>
+                        <div class="product-price-container">
+                            <div class="product-discount">490.000 VND</div>
+                            <div class="product-price">367.500 VND</div>
+                        </div>
+                    </div>
+                    <div class="btn-discount ">-25%</div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-lg-2 col-6 mb-3">
+                <div class="product-card" data-category="Mũ lật cằm">
+                    <img src="./images/mbh_latcam/latcam02.jpg" alt="Mũ lật cằm - Mẫu 2" class="product-image img-fluid">
+                    <div class="product-content d-flex flex-column">
+                        <div class="product-title">Mũ lật cằm - Mẫu 2</div>
+                        <div class="product-description">Mũ bảo hiểm lật cằm cao cấp, thiết kế thời trang và tiện dụng.</div>
+                        <div class="product-price-container">
+                            <div class="product-discount">620.000 VND</div>
+                            <div class="product-price">403.000 VND</div>
+                        </div>
+                    </div>
+                    <div class="btn-discount ">-35%</div>
                 </div>
             </div>
         </div>
+        <div class="progress mt-3">
+            <span class="progress-text">ĐANG BÁN CHẠY</span>
+            <div class="progress-bar progress-bar-striped progress-bar-animated " role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        </div>
+    </div>
 
-        <!-- foooter start -->
-        <div id="footer" class="mt-5">
-            <div class="container">
-                <div id="footer-main">
-                    <div class="row">
-                        <!-- giới thiệu -->
-                        <div class="col-md-5 mt-3 ">
-                            <div class="cty-name">
-                                <a href="./html/home.html"><img src="./images/img/LP_Strore_logo_tron.png"
-                                        style="width: 70px;" alt="logo">CÔNG TY TTHH LP STORE</a>
-                            </div>
+    
 
-                            <div class="cty-about mt-2">
-                                <span class="contact-icon">
-                                    <span><i class="fa-regular fa-bookmark"></i></span>
-                                </span>
-                                <div class="contact-detail">
-                                    Chuyên cung cấp các sản phẩm về mũ bảo hiểm chất lượng cao. Cùng bạn đồng hành trên
-                                    những chặng đường phiêu du
+   
 
-                                </div>
-                            </div>
+    <!-- end flash sale -->
 
-                            <div class="cty-ban-quyen mt-2">
-                                <span class="contact-icon">
-                                    <i class="fa-solid fa-check"></i>
-                                </span>
-                                <div class="contact-detail">
-                                    © Mọi hình ảnh được sử dụng trong website thuộc quyền sở hữu của
-                                    <a href="https://royalhelmet.com.vn/">Royalhelmet</a>.
-                                    Mọi giao dịch đều là ảo không thể thanh toán.
-                                </div>
-                            </div>
-
-                            <div class="cty-muc-dich mt-2">
-                                <span class="contact-icon">
-                                    <i class="fa-solid fa-school"></i>
-                                </span>
-                                <div class="contact-detail">
-                                    Đây là dự án bài tập lớn của môn Hệ thống Công nghệ
-                                    website. Thực hiện viết và xây dựng lên website bán hàng. Mọi hình ảnh và sản phẩm
-                                    trong
-                                    website chỉ mang tính thử nghiệm, không mang tính chất thương mại.
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- liên hệ -->
-                        <div class="col-md-4 mt-3">
-                            <div class="cty-title-contact">
-                                <h5>LIÊN HỆ</h5>
-                            </div>
-
-                            <div class="cty-address mt-2">
-                                <span class="contact-icon">
-                                    <i class="fa-solid fa-location-dot"></i>
-                                </span>
-                                <div class="contact-detail">
-                                    Địa chỉ: 12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, TP.HCM
-                                </div>
-                            </div>
-
-                            <div class="cty-tel mt-2">
-                                <span class="contact-icon">
-                                    <i class="fa-solid fa-phone"></i>
-                                </span>
-                                <div class="contact-detail">
-                                    <a href="tel:+028 123 4567">Điện thoại: +028 123 4567</a>
-                                </div>
-                            </div>
-
-                            <div class="cty-mail mt-2">
-                                <span class="contact-icon">
-                                    <i class="fa-solid fa-envelope"></i>
-                                </span>
-                                <div class="contact-detail">
-                                    <a href="mailto:lpstrore@iuh.edu.vn">Email: lpstrore@iuh.edu.vn</a>
-                                </div>
-                            </div>
-
-                            <div class="cty-web mt-2">
-                                <span class="contact-icon">
-                                    <i class="fa-solid fa-globe"></i>
-                                </span>
-                                <div class="contact-detail">
-                                    <a href="./html/home.html">Website: www.lpstore.com.vn</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Theo dõi chúng tôi -->
-                        <div class="col-md-3 mt-3">
-                            <div class="cty-follow-us">
-                                <h5>Tương tác với chúng tôi</h5>
-                                <ul id="top-social-media">
-                                    <li class="list-inline-item"><a href="#"><i class="fab fa-facebook"></i></a></li>
-                                    <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                    <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                    <li class="list-inline-item"><a href="#"><i class="fab fa-tiktok"></i></a></li>
-                                    <li class="list-inline-item"><a href="#"><i class="fab fa-youtube"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title w-100 text-center" id="productModalLabel">Thông tin sản phẩm</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
+                <div class="modal-body" id="productModalBody">
+                    <!-- Nội dung sản phẩm sẽ được cập nhật bằng JavaScript -->
+                </div>
+                <div id="alertContainer"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
 
-                <!-- footer bôttom -->
-                <div id="footer-bottom">
-                    <div class="row" style=" width: 100%;">
-                        <div class="col-md-12">
-                            © 2024 PL Store by Hồ Phúc Lâm . All Right Reserved. PL Store is Powered by HTML, CSS,
-                            Bootstrap
-                            4.
-                        </div>
-
-                    </div>
                 </div>
             </div>
         </div>
-        <!-- footer endd -->
+    </div>
+
+    <!-- foooter start -->
+    <div id="footer" class="mt-5 w-100">
+        <div class="container">
+            <div id="footer-main">
+                <div class="row">
+                    <!-- giới thiệu -->
+                    <div class="col-md-5 mt-3 ">
+                        <div class="cty-name">
+                            <a href="./html/home.html"><img src="./images/img/logokinghelmet.png"
+                                    style="width: 70px;" alt="logo">CÔNG TY TTHH KING HELMET</a>
+                        </div>
+
+                        <div class="cty-about mt-2">
+                            <span class="contact-icon">
+                                <span><i class="fa-regular fa-bookmark"></i></span>
+                            </span>
+                            <div class="contact-detail">
+                                Chuyên cung cấp các sản phẩm về mũ bảo hiểm chất lượng cao. Cùng bạn đồng hành trên
+                                những chặng đường phiêu du
+
+                            </div>
+                        </div>
+
+                        <div class="cty-ban-quyen mt-2">
+                            <span class="contact-icon">
+                                <i class="fa-solid fa-check"></i>
+                            </span>
+                            <div class="contact-detail">
+                                © Mọi hình ảnh được sử dụng trong website thuộc quyền sở hữu của
+                                <a href="https://royalhelmet.com.vn/">Royalhelmet</a>.
+                                Mọi giao dịch đều là ảo không thể thanh toán.
+                            </div>
+                        </div>
+
+                        <div class="cty-muc-dich mt-2">
+                            <span class="contact-icon">
+                                <i class="fa-solid fa-school"></i>
+                            </span>
+                            <div class="contact-detail">
+                                Đây là dự án bài tập lớn của môn Hệ thống Công nghệ
+                                website. Thực hiện viết và xây dựng lên website bán hàng. Mọi hình ảnh và sản phẩm
+                                trong
+                                website chỉ mang tính thử nghiệm, không mang tính chất thương mại.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- liên hệ -->
+                    <div class="col-md-4 mt-3">
+                        <div class="cty-title-contact">
+                            <h5>LIÊN HỆ</h5>
+                        </div>
+
+                        <div class="cty-address mt-2">
+                            <span class="contact-icon">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </span>
+                            <div class="contact-detail">
+                                Địa chỉ: 12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, TP.HCM
+                            </div>
+                        </div>
+
+                        <div class="cty-tel mt-2">
+                            <span class="contact-icon">
+                                <i class="fa-solid fa-phone"></i>
+                            </span>
+                            <div class="contact-detail">
+                                <a href="tel:+028 123 4567">Điện thoại: +028 123 4567</a>
+                            </div>
+                        </div>
+
+                        <div class="cty-mail mt-2">
+                            <span class="contact-icon">
+                                <i class="fa-solid fa-envelope"></i>
+                            </span>
+                            <div class="contact-detail">
+                                <a href="mailto:lpstrore@iuh.edu.vn">Email: lpstrore@iuh.edu.vn</a>
+                            </div>
+                        </div>
+
+                        <div class="cty-web mt-2">
+                            <span class="contact-icon">
+                                <i class="fa-solid fa-globe"></i>
+                            </span>
+                            <div class="contact-detail">
+                                <a href="./html/home.html">Website: www.lpstore.com.vn</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Theo dõi chúng tôi -->
+                    <div class="col-md-3 mt-3">
+                        <div class="cty-follow-us">
+                            <h5>Tương tác với chúng tôi</h5>
+                            <ul id="top-social-media">
+                                <li class="list-inline-item"><a href="#"><i class="fab fa-facebook"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="fab fa-tiktok"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="fab fa-youtube"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- footer bôttom -->
+            <div id="footer-bottom">
+                <div class="row" style=" width: 100%;">
+                    <div class="col-md-12">
+                        © 2024 PL Store by Hồ Phúc Lâm . All Right Reserved. PL Store is Powered by HTML, CSS,
+                        Bootstrap
+                        4.
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer endd -->
 
 </body>
 

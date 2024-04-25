@@ -234,4 +234,46 @@ legend {
     font-size: 24px;
     font-weight: bold;
     color: royalblue;
+    text-transform: uppercase;
+}
+#countdown {
+    font-size: 24px;
+    font-weight: bold;
+    color: tomato;
+}
+
+.progress {
+    height: 30px;
+    background-color: pink;
+    position: relative;
+}
+
+.progress-bar {
+    background-color: tomato;
+    transition: width 1s ease-in-out;
+}
+.progress-text {
+    position: absolute;
+    top: 50%; /* Căn chỉnh vị trí đứng giữa dọc */
+    left: 50%; /* Căn chỉnh vị trí đứng giữa ngang */
+    transform: translate(-50%, -50%); /* Dịch chuyển vị trí để căn giữa */
+    color: white;
+    font-weight: bolder;
+    text-shadow: 5px 5px 15px #333;
+    flex-direction: row;
+}
+#flash-sale{
+    /* border: 1px solid tomato; */
+    /* margin-left: 10%; */
+   
+}
+#flash-sale-top{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#flash-sale-top a{
+    color: tomato;
+    margin-right: 20px;
 }
