@@ -184,26 +184,54 @@ legend {
 
 #list-icon-category .col{
     margin: 0;
-    padding: 10px;
+    padding: 0x;
     /* padding-right: 5px; */
     /* display: flex; */
 
 }
-.home-category{
-    border: 1px solid black;
-    padding: 0;
-    margin: 0;
+
+/* Định dạng chung cho các mục danh mục sản phẩm */
+.home-category {
+    text-align: center; /* Căn giữa nội dung */
+    padding: 10px; /* Khoảng cách giữa các mục */
+    background-color: #f8f9fa; /* Màu nền của mục */
+    border: 1px solid #dee2e6; /* Viền */
+    border-radius: 5px; /* Bo tròn các góc */
+    transition: all 0.3s ease; /* Hiệu ứng chuyển động */
 }
-.home-category-img{
-    border: 1px solid blue;
-    max-width: 150px;
-    margin: 0 auto;
-    margin-top: 10%;
+
+.home-category:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hiển thị bóng khi di chuột vào */
 }
-.home-category-title{
-    border: 1px dashed red;
-    background-color: #aaa;
+
+.home-category-img {
+    overflow: hidden; /* Ẩn phần vượt quá chiều cao */
 }
-.home-category-title a{
-    color: #000;
+
+.home-category-img img {
+    width: 100%; /* Kích thước ảnh đầy đủ chiều rộng */
+    height: auto; /* Chiều cao tự động theo tỷ lệ */
+    object-fit: contain;
+    max-height: 200px; 
+
+}
+
+.home-category-title {
+    margin-top: 10px; /* Khoảng cách từ tiêu đề đến hình ảnh */
+}
+
+.home-category-title a {
+    color: #343a40; /* Màu chữ của tiêu đề */
+    text-decoration: none; /* Bỏ gạch chân cho liên kết */
+    font-weight: bold; /* Chữ đậm */
+}
+
+.home-category-title a:hover {
+    color: #007bff; /* Màu chữ khi di chuột vào */
+}
+
+.display-4{
+    font-size: 24px;
+    font-weight: bold;
+    color: royalblue;
 }
