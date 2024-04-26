@@ -20,7 +20,6 @@ window.onload = function () {
 
 document.addEventListener('DOMContentLoaded', function() {
     var countdownElement = document.getElementById('countdown');
-    // var countdownElements = document.querySelectorAll('.countdown');
     var progressBar = document.querySelector('.progress-bar');
 
     // Lấy thời gian hiện tại
