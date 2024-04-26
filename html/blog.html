@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mũ bảo hiểm 1/2 | King Helmet</title>
+    <title>Bài viết | King Helmet</title>
     <link rel="icon" href="../images/img/logokinghelmet.png" type="image/x-icon">
     <link rel="shortcut icon" href="../images/img/logokinghelmet.png" type="image/x-icon">
 
@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="../css/product.css">
 
     <!-- js -->
+    <script src="../js/jquery-3.5.1.slim.min.js"></script>
+    <script src="../js/popper.min.js"></script>
     <script src="../js/jquery-3.7.1.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/sanpham.js"></script>
@@ -79,7 +81,7 @@
                         CHỦ</a>
                 </li>
 
-                <li class="nav-item active">
+                <li class="nav-item ">
                     <a class="nav-link" href="../html/shop.html"><i class="fa fa-shop" aria-hidden="true"></i> CỬA
                         HÀNG</a>
                 </li>
@@ -105,8 +107,8 @@
                     <a class="nav-link" href="#"> <i class="fa-solid fa-money-check-dollar"></i> THANH TOÁN </a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="#"> <i class="fa-solid fa-comments"></i> BÀI VIẾT</a>
+                <li class="nav-item active">
+                    <a class="nav-link" href="../html/blog.html"> <i class="fa-solid fa-comments"></i> BÀI VIẾT</a>
                 </li>
 
             </ul>
@@ -124,7 +126,7 @@
                         <option value="fullface">Mũ bảo hiểm Fullface</option>
                         <option value="flip-up">Mũ bảo hiểm lật cằm</option>
                         <option value="half">Mũ bảo hiểm 1/2 đầu</option>
-                        <option value="bike">Mũ bảo hiểm Xe Đạp</option>
+                        <option value="bike">Mũ bảo hiểm xe Đạp</option>
                         <option value="kids">Mũ bảo hiểm trẻ em</option>
                         <option value="goggles">Kính mũ bảo hiểm</option>
                     </select>
@@ -144,83 +146,129 @@
     </nav>
     <!-- navbar end -->
 
-    <nav aria-label="breadcrumb">
+    <nav aria-label="breadcrumb ">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="../html/index.html">Trang chủ</a></li>
-            <li class="breadcrumb-item"><a href="../html/shop.html">Cửa hàng</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Mũ bảo hiểm 1/2 đầu</li>
+            <li class="breadcrumb-item active" aria-current="page">Bài viết</li>
         </ol>
     </nav>
 
     <div class="container-fluid">
         <div class="row">
             <div class="col-3" id="aside">
-                <div class=" px-2">
-                    <div class="list-group" id="category-list-nav">
-                        <h4>Danh mục sản phẩm</h4>
-                        <a href="../html/shop.html" class="list-group-item list-group-item-action">Tất cả sản
-                            phẩm</a>
-                        <a href="../html/mu34.html" class="list-group-item list-group-item-action">Mũ bảo hiểm 3/4
-                            đầu</a>
-                        <a href="../html/mufull.html" class="list-group-item list-group-item-action">Mũ bảo hiểm
-                            Fullface</a>
-                        <a href="../html/mulatcam.html" class="list-group-item list-group-item-action">Mũ bảo hiểm lật
-                            cằm</a>
-                        <a href="../html/mu12.html" class="list-group-item list-group-item-action active">Mũ bảo hiểm 1/2
-                            đầu</a>
-                        <a href="../html/muxedap.html" class="list-group-item list-group-item-action">Mũ bảo hiểm xe
-                            đạp</a>
-                        <a href="../html/mutreme.html" class="list-group-item list-group-item-action">Mũ bảo hiểm trẻ
-                            em</a>
-                        <a href="../html/kinhmubaohiem.html" class="list-group-item list-group-item-action">Kính mũ bảo
-                            hiểm</a>
-                    </div>
-                </div>
-
-                <div class="loc-san-pham my-2 mx-1 ">
-                    <div class="my-2 filterSP">
-                        <h4 class="text-center">Lọc theo giá</h4>
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Từ">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">-</span>
+                
+                <!-- sản phấm bán chạy nhất -->
+                <div id="bestSellersCarouselContainer">
+                    <!-- SP1 -->
+                    <div class="col-12  p-2">
+                        <div class="product-card" data-category="Mũ 3/4">
+                            <div class="product-content">
+                                <img src="../images/mbh_34/mu34_04.jpg" alt="Mũ 3/4 - Mẫu 4"
+                                    class="product-image img-fluid float-left mr-2">
+                                <div class="product-title text-center">Mũ 3/4 - Mẫu 4</div>
+                                <div class="product-description">Mũ bảo hiểm loại 3/4 đầu, phong cách đơn giản
+                                    nhưng hiện đại.</div>
+                                <ul id="vote-5-star" class="mr-0">
+                                    <li class="list-inline-item"><i class="fa fa-star text-warning"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star text-warning"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star text-warning"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star text-warning"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star text-warning"></i></li>
+                                </ul>
+                                <div class="product-price-container">
+                                    <div class="product-discount">480.000 VND</div>
+                                    <div class="product-price">336.000 VND</div>
+                                </div>
                             </div>
-                            <input type="text" class="form-control" placeholder="Đến">
+                            <div class="btn-discount">-30%</div>
                         </div>
                     </div>
 
-                    <!-- Lọc theo giảm giá -->
-                    <div class="my-2 filterSP">
-                        <h4 class="text-center">Giảm giá</h4>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="discount" id="discountYes">
-                            <label class="form-check-label" for="discountYes">Có giảm giá</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="discount" id="discountNo">
-                            <label class="form-check-label" for="discountNo">Không giảm giá</label>
+
+                    <!-- SP2 -->
+                    <div class="col-12  p-2">
+                        <div class="product-card" data-category="Mũ Fullface">
+
+                            <div class="product-content ">
+                                <img src="../images/mbh_fullface/full01.jpg" alt="Mũ Fullface - Mẫu 1"
+                                    class="product-image float-left mr-2">
+                                <div class="product-title text-center">Mũ Fullface - Mẫu 1</div>
+                                <div class="product-description">Mũ bảo hiểm Fullface chất lượng cao, bảo vệ
+                                    toàn diện cho đầu.</div>
+                                <ul id="vote-5-star" class="mr-0">
+                                    <li class="list-inline-item"><i class="fa fa-star text-warning"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star text-warning"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star text-warning"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star text-warning"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star text-warning"></i></li>
+                                </ul>
+                                <div class="product-price-container">
+                                    <div class="product-discount">800.000 VND</div>
+                                    <div class="product-price">560.000 VND</div>
+                                </div>
+                            </div>
+                            <div class="btn-discount">-30%</div>
                         </div>
                     </div>
 
-                    <div class="my-2 p-2">
-                        <button class="btn btn-primary btn-block">Lọc</button>
+                    <!-- SP3 -->
+                    <div class="col-12  p-2">
+                        <div class="product-card" data-category="Mũ lật cằm ">
+
+                            <div class="product-content ">
+                                <img src="../images/mbh_latcam/latcam03.jpg" alt="Mũ lật cằm - Mẫu 3"
+                                    class="product-image float-left mr-2">
+                                <div class="product-title text-center">Mũ lật cằm - Mẫu 3</div>
+                                <div class="product-description">Mũ bảo hiểm lật cằm chất lượng, bảo vệ an toàn
+                                    cho người sử dụng.</div>
+                                <ul id="vote-5-star" class="mr-0">
+                                    <li class="list-inline-item"><i class="fa fa-star text-warning"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star text-warning"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star text-warning"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star text-warning"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star text-warning"></i></li>
+                                </ul>
+                                <div class="product-price-container">
+                                    <div class="product-discount">590.000 VND</div>
+                                    <div class="product-price">472.000 VND</div>
+                                </div>
+                            </div>
+                            <div class="btn-discount">-20%</div>
+                        </div>
                     </div>
+
+                    <!-- sp4 -->
+                    <div class="col-12  p-2">
+                        <div class="product-card" data-category="Mũ Fullface">
+
+                            <div class="product-content ">
+                                <img src="../images/mbh_fullface/full05.jpg" alt="Mũ Fullface - Mẫu 5"
+                                    class="product-image img-fluid float-left mr-2 ">
+                                <div class="product-title text-center">Mũ Fullface - Mẫu 5</div>
+                                <div class="product-description">Mũ bảo hiểm Fullface thời trang, phong cách và
+                                    độ bền cao.</div>
+                                <ul id="vote-5-star" class="mr-0">
+                                    <li class="list-inline-item"><i class="fa fa-star text-warning"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star text-warning"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star text-warning"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star text-warning"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star text-warning"></i></li>
+                                </ul>
+                                <div class="product-price-container">
+                                    <div class="product-discount ">790.000 VND</div>
+                                    <div class="product-price ">553.000 VND</div>
+                                </div>
+                            </div>
+                            <div class="btn-discount">-30%</div>
+                        </div>
+                    </div>
+
+
                 </div>
 
             </div>
             <div class="col-9" id="section">
-                <div id="top"></div>
-                <div id="productList" class="row">
-                    <!-- Đây là nơi để hiển thị danh sách sản phẩm -->
-                </div>
-                <ul id="pagination" class="pagination justify-content-center">
-                    <!-- Đây là nơi để hiển thị thanh phân trang -->
-                </ul>
-                <script>
-                    $(document).ready(function () {
-                        displayProducts(productList, 'Mũ 1/2');
-                    });
-                </script>
+                
             </div>
         </div>
     </div>
@@ -250,6 +298,28 @@
             </div>
         </div>
     </div>
+
+    
+    <div class="container mt-5">
+        <div class="row justify-content-end">
+            <div class="col-md-3">
+                <div class="shopping-cart">
+                    <button class="btn shopping-cart-btn dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="num-item-in-cart rounded-circle">0</span>
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                        <div class="dropdown-item figure text-center rounded-0 p-3 mx-auto">
+                            <div class="figure-caption text-bg text-big">Chưa có sản phẩm nào trong giỏ hàng</div>
+                        </div>
+                        <button class="btn w-100 text-md mx-auto mt-3 pay-btn">Thanh toán</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 
     <!-- foooter start -->
@@ -400,6 +470,7 @@
     </div>
     <!-- footer endd -->
 
+    
 </body>
 
 
