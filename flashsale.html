@@ -1,139 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flash Sale Countdown</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
-            padding: 20px;
-        }
-
-        .flash-sale {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .product-list {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            grid-gap: 20px;
-            margin-top: 20px;
-        }
-
-        .product-card {
-            background-color: #f8f9fa;
-            padding: 20px;
-            text-align: center;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .countdown-timer {
-            margin-top: 40px;
-            text-align: center;
-        }
-
-        #countdown {
-            font-size: 24px;
-            font-weight: bold;
-            color: tomato;
-            margin-bottom: 20px;
-        }
-
-        .progress {
-            height: 30px;
-            background-color: pink;
-            position: relative;
-        }
-
-        .progress-bar {
-            background-color: tomato;
-            transition: width 1s ease-in-out;
-        }
-        .progress-text {
-            position: absolute;
-            top: 50%; /* Căn chỉnh vị trí đứng giữa dọc */
-            left: 50%; /* Căn chỉnh vị trí đứng giữa ngang */
-            transform: translate(-50%, -50%); /* Dịch chuyển vị trí để căn giữa */
-            color: black;
-            font-weight: bold;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
 
-<div class="flash-sale">
-    <h2 class="text-center mb-4">Flash Sale - Sản phẩm giảm giá</h2>
-
-    <div class="product-list">
-        <div class="product-card">
-            <img src="./images/product1.jpg" alt="Product 1" class="img-fluid mb-2">
-            <div class="product-title mb-2">Product 1</div>
-            <div class="product-price">500,000 VND</div>
+<div class="container my-4">
+    <h3 class="display-4 text-center mb-5">Bài viết</h3>
+    <div class="row">
+        <div class="col-md-6 border mb-4">
+            <div class="row align-items-center h-100">
+                <div class="col-4 d-flex align-items-center">
+                    <img src="../images/img/blog1.png" class="img-fluid rounded" alt="Blog 1">
+                </div>
+                <div class="col-8">
+                    <h6 class="mb-3">5 lợi ích của việc đội mũ bảo hiểm khi lái xe máy</h6>
+                    <p class="text-justify mb-4">
+                        Đội mũ bảo hiểm khi lái xe máy không chỉ là việc bắt buộc mà còn mang lại nhiều lợi
+                        ích cho sức khỏe và an toàn của bạn. Hãy tìm hiểu 5 lợi ích quan trọng này
+                        trong bài viết sau.
+                    </p>
+                    <div class="text-center">
+                        <button type="button" class="btn btn-info btn-sm">Xem thêm ...</button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- Thêm các sản phẩm khác vào đây -->
-    </div>
 
-    <div class="countdown-timer">
-        <h3>Thời gian còn lại đến 1 giờ mới:</h3>
-        <div id="countdown"></div>
-        <div class="progress">
-            <span class="progress-text">ĐANG BÁN CHẠY</span>
-            <div class="progress-bar progress-bar-striped progress-bar-animated " role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+        <div class="col-md-6 border mb-4">
+            <div class="row align-items-center h-100">
+                <div class="col-4 d-flex align-items-center">
+                    <img src="../images/img/blog2.png" class="img-fluid rounded" alt="Blog 2">
+                </div>
+                <div class="col-8">
+                    <h6 class="mb-3">Chọn mũ bảo hiểm phù hợp với hình dáng khuôn mặt của bạn</h6>
+                    <p class="text-justify mb-4">
+                        Mũ bảo hiểm không chỉ cần phải đảm bảo an toàn mà còn phải phản ánh phong cách và
+                        hình dáng khuôn mặt của bạn. Hãy cùng tìm hiểu cách chọn mũ bảo hiểm phù hợp với
+                        hình dáng khuôn mặt của bạn trong bài viết này.
+                    </p>
+                    <div class="text-center">
+                        <button type="button" class="btn btn-info btn-sm">Xem thêm ...</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var countdownElement = document.getElementById('countdown');
-        var progressBar = document.querySelector('.progress-bar');
-
-        // Lấy thời gian hiện tại
-        var currentTime = new Date();
-
-        // Thiết lập thời gian bắt đầu đếm ngược đến giờ mới
-        var targetTime = new Date(currentTime);
-        targetTime.setHours(currentTime.getHours() + 1, 0, 0, 0); // Thiết lập giờ mới là giờ tiếp theo, phút và giây là 0
-
-        function updateCountdown() {
-            var now = new Date();
-            var timeRemaining = targetTime - now;
-
-            if (timeRemaining <= 0) {
-                countdownElement.textContent = "Chuyển sang giờ mới!";
-                progressBar.style.width = "100%";
-            } else {
-                // Tính toán số giờ, phút, giây còn lại
-                var hours = Math.floor(timeRemaining / (1000 * 60 * 60));
-                var minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-                var seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-
-                // Hiển thị đồng hồ đếm ngược
-                countdownElement.textContent = `Thời gian còn lại đến giờ mới: ${hours} giờ ${minutes} phút ${seconds} giây`;
-
-                // Tính toán % tiến độ
-                var progress = (timeRemaining / (60 * 60 * 1000)) * 100; // Tính theo giờ
-                progressBar.style.width = `${100 - progress}%`;
-            }
-        }
-
-        // Gọi hàm updateCountdown ban đầu
-        updateCountdown();
-
-        // Cập nhật đồng hồ đếm ngược mỗi giây
-        setInterval(updateCountdown, 1000);
-    });
-</script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
