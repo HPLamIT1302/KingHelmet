@@ -18,7 +18,7 @@ window.onload = function () {
 
 
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     var countdownElement = document.getElementById('countdown');
     var progressBar = document.querySelector('.progress-bar');
 
@@ -1317,42 +1317,81 @@ function addToCart(name, discountPrice, quantity) {
 }
 
 
-$(document).ready(function() {
+$(document).ready(function () {
     var numItemsInCart = 0;
 
     // Xử lý sự kiện khi người dùng nhấp vào nút giỏ hàng
-    $('.shopping-cart-btn').click(function() {
-      // Tăng số lượng sản phẩm trong giỏ hàng
-      numItemsInCart++;
-      // Cập nhật số lượng sản phẩm trong biểu tượng giỏ hàng
-      $('.num-item-in-cart').text(numItemsInCart);
+    $('.shopping-cart-btn').click(function () {
+        // Tăng số lượng sản phẩm trong giỏ hàng
+        numItemsInCart++;
+        // Cập nhật số lượng sản phẩm trong biểu tượng giỏ hàng
+        $('.num-item-in-cart').text(numItemsInCart);
     });
 
     // Xử lý sự kiện khi người dùng nhấp vào nút Thanh toán
-    $('.pay-btn').click(function() {
-      // Thêm code xử lý thanh toán ở đây (ví dụ: chuyển hướng đến trang thanh toán)
-      alert("Đã thanh toán!");
-      // Đặt lại số lượng sản phẩm trong giỏ hàng về 0
-      numItemsInCart = 0;
-      $('.num-item-in-cart').text(numItemsInCart);
+    $('.pay-btn').click(function () {
+        // Thêm code xử lý thanh toán ở đây (ví dụ: chuyển hướng đến trang thanh toán)
+        alert("Đã thanh toán!");
+        // Đặt lại số lượng sản phẩm trong giỏ hàng về 0
+        numItemsInCart = 0;
+        $('.num-item-in-cart').text(numItemsInCart);
     });
-  });
+});
 
-  $(document).ready(function(){
+$(document).ready(function () {
     var images = $('.image-container img');
     var currentIndex = 0;
-  
+
     function showImage(index) {
-      images.removeClass('active');
-      images.eq(index).addClass('active');
+        images.removeClass('active');
+        images.eq(index).addClass('active');
     }
-  
+
     function nextImage() {
-      currentIndex = (currentIndex + 1) % images.length;
-      showImage(currentIndex);
+        currentIndex = (currentIndex + 1) % images.length;
+        showImage(currentIndex);
     }
-  
+
     // Tự động chuyển ảnh sau mỗi 3 giây
     setInterval(nextImage, 5000);
-  });
-  
+});
+
+var users = [];
+
+$(document).ready(function () {
+    $('#registerForm').submit(function (e) {
+        e.preventDefault();
+        if (this.checkValidity()) {
+            var formData = $(this).serializeArray();
+            var userObject = {};
+            $.each(formData, function (i, field) {
+                userObject[field.name] = field.value;
+            });
+            users.push(userObject);
+            console.log(users); // In thông tin người dùng vào console
+            alert('Đăng ký thành công!');
+            $('#registerForm')[0].reset();
+        } else {
+            e.stopPropagation();
+            $(this).addClass('was-validated');
+        }
+    });
+});
+
+$(document).ready(function () {
+    $('#loginForm').submit(function (e) {
+        e.preventDefault();
+        // Lấy giá trị từ các trường input
+        var username = $('#username').val();
+        var password = $('#password').val();
+
+        // Kiểm tra tên đăng nhập và mật khẩu
+        if (username === 'admin' && password === 'admin') {
+            alert('Đăng nhập thành công!');
+            // Redirect hoặc thực hiện các hành động khác sau khi đăng nhập thành công
+        } else {
+            alert('Tên đăng nhập hoặc mật khẩu không đúng!');
+        }
+    });
+});
+

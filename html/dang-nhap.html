@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thành viên | King Helmet</title>
+    <title>Đăng nhập | King Helmet</title>
     <link rel="icon" href="../images/img/logokinghelmet.png" type="image/x-icon">
     <link rel="shortcut icon" href="../images/img/logokinghelmet.png" type="image/x-icon">
 
@@ -106,10 +106,10 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="../html/gio-hang.html"> <i class="fa-solid fa-money-check-dollar"></i> THANH TOÁN </a>
+                    <a class="nav-link" href="#"> <i class="fa-solid fa-money-check-dollar"></i> THANH TOÁN </a>
                 </li>
 
-                <li class="nav-item active">
+                <li class="nav-item ">
                     <a class="nav-link" href="../html/blog.html"> <i class="fa-solid fa-comments"></i> BÀI VIẾT</a>
                 </li>
 
@@ -151,7 +151,8 @@
     <nav aria-label="breadcrumb ">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="../html/index.html">Trang chủ</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Thành viên</li>
+            <li class="breadcrumb-item"><a href="../html/thanh-vien.html">Thành viên</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Đăng nhập tài khoản</li>
         </ol>
     </nav>
 
@@ -166,36 +167,29 @@
                 </div>
 
             </div>
-            <div class="col-md-9" id="section">
-                <div id="members" class="container " style="min-height: 51vh;">
-                    <div class="text-center p-3"><span class="display-4 text-center">DANH SÁCH THÀNH VIÊN ĐĂNG KÝ</span></div>
-                    <table class="table table-striped mx-auto " id="table-members">
-                       <thead>
-                         <tr>
-                           <th scope="col">STT</th>
-                           <th scope="col">Họ tên</th>
-                           <th scope="col">Email</th>
-                           <th scope="col">Số điện thoại</th>
-                           <th scope="col">Địa chỉ</th>
-                         </tr>                                                           
-                       </thead>
-                       <tbody id="print-info">
-                         <tr>
-                           <th scope="row">1</th>
-                           <td>Hồ Phúc Lâm</td>
-                           <td>hplam.it13@gmail.com</td>
-                           <td>0374826297</td>
-                           <td>Đại học Công Nghiệp TPHCM</td>
-                         </tr>
-                         
-                       </tbody>
-                     </table>
-                     <div class="text-center">
-                        <a href="../html/dang-nhap.html"><button type="button" class="btn btn-primary">Đăng nhập</button></a>
-                     </div>
-                   
-                 </div>
-              
+            <div class="col-md-9 " id="section">
+                <div class="card p-3">
+                    <div class="card-header text-center">
+                        <span class="display-4">ĐĂNG NHẬP TÀI KHOẢN</span>
+                    </div>
+                    <div class="card-body">
+                        <form id="loginForm">
+                            <div class="form-group">
+                                <label for="username">Tên đăng nhập:</label>
+                                <input type="text" class="form-control" id="username" name="username" required placeholder="admin">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Mật khẩu:</label>
+                                <input type="password" class="form-control" id="password" name="password" required placeholder="admin">
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Đăng nhập</button>
+                        </form>
+                    </div>
+                    <div class="card-footer align-items-center">
+                        <p class="text-center text-secondary">Bạn chưa có tài khoản? <a href="../html/dang-ky.html" class="text-warning">Nhấn để đăng ký</a></p>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>
