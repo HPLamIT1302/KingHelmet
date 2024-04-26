@@ -9,6 +9,9 @@ var productList = [
         description: "Mũ bảo hiểm loại 3/4 đầu, phù hợp cho các dòng xe cổ điển và cruiser.",
         price: 500000,
         discountPercent: 20,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Vỏ bằng nhựa ABS nguyên sinh",
             "- Trọng lượng: 841g ± 50g",
@@ -24,6 +27,9 @@ var productList = [
         description: "Mũ bảo hiểm loại 3/4 đầu, thiết kế thời trang, chất lượng cao.",
         price: 520000,
         discountPercent: 15,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Vỏ bằng fiberglass",
             "- Trọng lượng: 900g ± 50g",
@@ -39,6 +45,9 @@ var productList = [
         description: "Mũ bảo hiểm loại 3/4 đầu, màu sắc tươi sáng, bảo vệ an toàn khi đi xe.",
         price: 490000,
         discountPercent: 25,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Vỏ bằng polycarbonate",
             "- Trọng lượng: 850g ± 50g",
@@ -54,6 +63,9 @@ var productList = [
         description: "Mũ bảo hiểm loại 3/4 đầu, phong cách đơn giản nhưng hiện đại.",
         price: 480000,
         discountPercent: 30,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Vỏ bằng polycarbonate",
             "- Trọng lượng: 880g ± 50g",
@@ -69,6 +81,9 @@ var productList = [
         description: "Mũ bảo hiểm loại 3/4 đầu, chất liệu nhẹ và thoáng mát.",
         price: 510000,
         discountPercent: 20,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Vỏ bằng fiberglass",
             "- Trọng lượng: 900g ± 50g",
@@ -84,6 +99,9 @@ var productList = [
         description: "Mũ bảo hiểm loại 3/4 đầu, có nhiều màu sắc và kích thước phù hợp.",
         price: 530000,
         discountPercent: 10,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Vỏ bằng polycarbonate",
             "- Trọng lượng: 850g ± 50g",
@@ -99,6 +117,9 @@ var productList = [
         description: "Mũ bảo hiểm loại 3/4 đầu, kiểu dáng độc đáo và thời trang.",
         price: 490000,
         discountPercent: 15,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Vỏ bằng polycarbonate",
             "- Trọng lượng: 860g ± 50g",
@@ -114,6 +135,9 @@ var productList = [
         description: "Mũ bảo hiểm loại 3/4 đầu, chất liệu chống nắng và chống thấm mồ hôi.",
         price: 540000,
         discountPercent: 20,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Vỏ bằng fiberglass",
             "- Trọng lượng: 920g ± 50g",
@@ -129,6 +153,9 @@ var productList = [
         description: "Mũ bảo hiểm loại 3/4 đầu, đa dạng về kiểu dáng và màu sắc.",
         price: 520000,
         discountPercent: 25,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Vỏ bằng polycarbonate",
             "- Trọng lượng: 880g ± 50g",
@@ -146,6 +173,9 @@ var productList = [
         description: "Mũ bảo hiểm Fullface chất lượng cao, bảo vệ toàn diện cho đầu.",
         price: 800000,
         discountPercent: 30,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Vỏ bằng polycarbonate",
             "- Trọng lượng: 900g ± 50g",
@@ -161,6 +191,9 @@ var productList = [
         description: "Mũ bảo hiểm Fullface với thiết kế hiện đại và đẳng cấp.",
         price: 820000,
         discountPercent: 25,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Vỏ bằng fiberglass",
             "- Trọng lượng: 950g ± 50g",
@@ -176,6 +209,9 @@ var productList = [
         description: "Mũ bảo hiểm Fullface, một lựa chọn tốt cho những tay lái xe đam mê tốc độ.",
         price: 780000,
         discountPercent: 20,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Vỏ bằng polycarbonate",
             "- Trọng lượng: 920g ± 50g",
@@ -191,6 +227,9 @@ var productList = [
         description: "Mũ bảo hiểm Fullface với công nghệ tiên tiến, an toàn tuyệt đối.",
         price: 850000,
         discountPercent: 15,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Vỏ bằng fiberglass",
             "- Trọng lượng: 930g ± 50g",
@@ -206,6 +245,9 @@ var productList = [
         description: "Mũ bảo hiểm Fullface thời trang, phong cách và độ bền cao.",
         price: 790000,
         discountPercent: 30,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Vỏ bằng polycarbonate",
             "- Trọng lượng: 890g ± 50g",
@@ -221,6 +263,9 @@ var productList = [
         description: "Mũ bảo hiểm Fullface với nhiều màu sắc và kiểu dáng đa dạng.",
         price: 830000,
         discountPercent: 25,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Vỏ bằng fiberglass",
             "- Trọng lượng: 920g ± 50g",
@@ -236,6 +281,9 @@ var productList = [
         description: "Mũ bảo hiểm Fullface dành cho những tay đua chuyên nghiệp và đam mê thể thao xe đạp.",
         price: 820000,
         discountPercent: 20,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Vỏ bằng polycarbonate",
             "- Trọng lượng: 910g ± 50g",
@@ -251,6 +299,9 @@ var productList = [
         description: "Mũ bảo hiểm Fullface cao cấp với thiết kế đẳng cấp và an toàn.",
         price: 860000,
         discountPercent: 10,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Vỏ bằng fiberglass",
             "- Trọng lượng: 940g ± 50g",
@@ -266,6 +317,9 @@ var productList = [
         description: "Mũ bảo hiểm Fullface phong cách, an toàn và thoải mái cho mọi hoạt động.",
         price: 800000,
         discountPercent: 15,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Vỏ bằng polycarbonate",
             "- Trọng lượng: 920g ± 50g",
@@ -283,6 +337,9 @@ var productList = [
         description: "Mũ bảo hiểm loại 1/2 đầu, phù hợp cho xe máy phổ thông.",
         price: 400000,
         discountPercent: 15,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Vỏ bằng nhựa ABS nguyên sinh",
             "- Trọng lượng: 841g ± 50g",
@@ -297,6 +354,9 @@ var productList = [
         description: "Mũ bảo hiểm loại 1/2 đầu, thiết kế đơn giản nhưng đầy phong cách.",
         price: 420000,
         discountPercent: 10,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Vỏ bằng polycarbonate",
             "- Trọng lượng: 860g ± 50g",
@@ -311,6 +371,9 @@ var productList = [
         description: "Mũ bảo hiểm loại 1/2 đầu, chất liệu nhẹ và thoáng mát.",
         price: 430000,
         discountPercent: 20,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Vỏ bằng fiberglass",
             "- Trọng lượng: 880g ± 50g",
@@ -325,6 +388,9 @@ var productList = [
         description: "Mũ bảo hiểm loại 1/2 đầu, có nhiều màu sắc và kích thước phù hợp.",
         price: 410000,
         discountPercent: 15,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Vỏ bằng nhựa ABS nguyên sinh",
             "- Trọng lượng: 850g ± 50g",
@@ -339,6 +405,9 @@ var productList = [
         description: "Mũ bảo hiểm loại 1/2 đầu, kiểu dáng thời trang và hiện đại.",
         price: 390000,
         discountPercent: 25,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Vỏ bằng polycarbonate",
             "- Trọng lượng: 870g ± 50g",
@@ -353,6 +422,9 @@ var productList = [
         description: "Mũ bảo hiểm loại 1/2 đầu, bền bỉ và an toàn khi sử dụng.",
         price: 420000,
         discountPercent: 30,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Vỏ bằng nhựa ABS nguyên sinh",
             "- Trọng lượng: 880g ± 50g",
@@ -367,6 +439,9 @@ var productList = [
         description: "Mũ bảo hiểm loại 1/2 đầu, phù hợp cho các dòng xe phổ thông.",
         price: 400000,
         discountPercent: 15,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Vỏ bằng fiberglass",
             "- Trọng lượng: 870g ± 50g",
@@ -381,6 +456,9 @@ var productList = [
         description: "Mũ bảo hiểm loại 1/2 đầu, thiết kế thời trang và phong cách.",
         price: 410000,
         discountPercent: 55,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Vỏ bằng polycarbonate",
             "- Trọng lượng: 860g ± 50g",
@@ -397,6 +475,9 @@ var productList = [
         description: "Mũ bảo hiểm lật cằm tiện dụng, thích hợp cho chạy xe phong cách.",
         price: 600000,
         discountPercent: 25,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Vỏ bằng nhựa ABS nguyên sinh",
             "- Trọng lượng: 1237g ± 50g",
@@ -411,6 +492,9 @@ var productList = [
         description: "Mũ bảo hiểm lật cằm cao cấp, thiết kế thời trang và tiện dụng.",
         price: 620000,
         discountPercent: 35,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Vỏ bằng nhựa ABS nguyên sinh",
             "- Trọng lượng: 1237g ± 50g",
@@ -425,6 +509,9 @@ var productList = [
         description: "Mũ bảo hiểm lật cằm chất lượng, bảo vệ an toàn cho người sử dụng.",
         price: 590000,
         discountPercent: 20,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Vỏ bằng nhựa ABS nguyên sinh",
             "- Trọng lượng: 1237g ± 50g",
@@ -439,6 +526,9 @@ var productList = [
         description: "Mũ bảo hiểm lật cằm đẹp mắt, đảm bảo độ an toàn khi điều khiển xe.",
         price: 580000,
         discountPercent: 40,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Vỏ bằng nhựa ABS nguyên sinh",
             "- Trọng lượng: 1237g ± 50g",
@@ -453,6 +543,9 @@ var productList = [
         description: "Mũ bảo hiểm lật cằm thời trang, phong cách và chất lượng cao.",
         price: 600000,
         discountPercent: 25,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Vỏ bằng nhựa ABS nguyên sinh",
             "- Trọng lượng: 1237g ± 50g",
@@ -469,6 +562,9 @@ var productList = [
         description: "Mũ bảo hiểm dành cho trẻ em, với các hình vẽ và màu sắc bắt mắt.",
         price: 300000,
         discountPercent: 10,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Thiết kế kính âm đột phá, nhiều màu sắc.",
             "- Trọng lượng: 712g ± 50g",
@@ -482,6 +578,9 @@ var productList = [
         description: "Mũ bảo hiểm dành cho trẻ em, chất liệu nhẹ và an toàn.",
         price: 320000,
         discountPercent: 15,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Thiết kế kính âm đột phá, nhiều màu sắc.",
             "- Trọng lượng: 712g ± 50g",
@@ -495,6 +594,9 @@ var productList = [
         description: "Mũ bảo hiểm trẻ em với nhiều họa tiết vui nhộn và bắt mắt.",
         price: 310000,
         discountPercent: 20,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Thiết kế kính âm đột phá, nhiều màu sắc.",
             "- Trọng lượng: 712g ± 50g",
@@ -508,6 +610,9 @@ var productList = [
         description: "Mũ bảo hiểm dành cho trẻ em, thiết kế độc đáo và đáng yêu.",
         price: 300000,
         discountPercent: 25,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Thiết kế kính âm đột phá, nhiều màu sắc.",
             "- Trọng lượng: 712g ± 50g",
@@ -521,6 +626,9 @@ var productList = [
         description: "Mũ bảo hiểm trẻ em với nhiều màu sắc tươi sáng và an toàn.",
         price: 330000,
         discountPercent: 10,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Thiết kế kính âm đột phá, nhiều màu sắc.",
             "- Trọng lượng: 712g ± 50g",
@@ -534,6 +642,9 @@ var productList = [
         description: "Mũ bảo hiểm cho trẻ em, chất liệu mềm mại và thoải mái khi đội.",
         price: 315000,
         discountPercent: 20,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Thiết kế kính âm đột phá, nhiều màu sắc.",
             "- Trọng lượng: 712g ± 50g",
@@ -547,6 +658,9 @@ var productList = [
         description: "Mũ bảo hiểm trẻ em với thiết kế bắt mắt và an toàn cho bé.",
         price: 325000,
         discountPercent: 15,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Thiết kế kính âm đột phá, nhiều màu sắc.",
             "- Trọng lượng: 712g ± 50g",
@@ -560,6 +674,9 @@ var productList = [
         description: "Mũ bảo hiểm trẻ em với nhiều lựa chọn màu sắc và kiểu dáng.",
         price: 310000,
         discountPercent: 30,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Thiết kế kính âm đột phá, nhiều màu sắc.",
             "- Trọng lượng: 712g ± 50g",
@@ -573,6 +690,9 @@ var productList = [
         description: "Mũ bảo hiểm trẻ em với họa tiết đáng yêu và bảo vệ an toàn.",
         price: 300000,
         discountPercent: 20,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Thiết kế kính âm đột phá, nhiều màu sắc.",
             "- Trọng lượng: 712g ± 50g",
@@ -589,6 +709,9 @@ var productList = [
         description: "Mũ bảo hiểm phù hợp cho các tín đồ đạp xe, bảo vệ an toàn khi đi xe đạp.",
         price: 250000,
         discountPercent: 0,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Vỏ bằng nhựa ABS nguyên sinh",
             "- Xốp EPS",
@@ -603,6 +726,9 @@ var productList = [
         description: "Mũ bảo hiểm cho người đi xe đạp, thiết kế đơn giản và nhẹ nhàng.",
         price: 260000,
         discountPercent: 10,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Vỏ bằng nhựa ABS nguyên sinh",
             "- Xốp EPS",
@@ -617,6 +743,9 @@ var productList = [
         description: "Mũ bảo hiểm xe đạp chất lượng cao, an toàn khi điều khiển xe.",
         price: 255000,
         discountPercent: 5,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Vỏ bằng nhựa ABS nguyên sinh",
             "- Xốp EPS",
@@ -631,6 +760,9 @@ var productList = [
         description: "Mũ bảo hiểm phù hợp cho các tay đua xe đạp, tăng tính thẩm mỹ và bảo vệ.",
         price: 270000,
         discountPercent: 15,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Vỏ bằng nhựa ABS nguyên sinh",
             "- Xốp EPS",
@@ -645,6 +777,9 @@ var productList = [
         description: "Mũ bảo hiểm xe đạp nhẹ nhàng và thoải mái, giúp bảo vệ an toàn.",
         price: 245000,
         discountPercent: 0,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Vỏ bằng nhựa ABS nguyên sinh",
             "- Xốp EPS",
@@ -659,6 +794,9 @@ var productList = [
         description: "Mũ bảo hiểm xe đạp với nhiều lựa chọn màu sắc và kiểu dáng.",
         price: 260000,
         discountPercent: 10,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Vỏ bằng nhựa ABS nguyên sinh",
             "- Xốp EPS",
@@ -673,6 +811,9 @@ var productList = [
         description: "Mũ bảo hiểm xe đạp thời trang, phong cách và an toàn.",
         price: 250000,
         discountPercent: 0,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Vỏ bằng nhựa ABS nguyên sinh",
             "- Xốp EPS",
@@ -687,6 +828,9 @@ var productList = [
         description: "Mũ bảo hiểm xe đạp với thiết kế hiện đại và đa dạng.",
         price: 265000,
         discountPercent: 5,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Vỏ bằng nhựa ABS nguyên sinh",
             "- Xốp EPS",
@@ -701,6 +845,9 @@ var productList = [
         description: "Mũ bảo hiểm xe đạp chất lượng cao, an toàn và thời trang.",
         price: 255000,
         discountPercent: 10,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Vỏ bằng nhựa ABS nguyên sinh",
             "- Xốp EPS",
@@ -717,6 +864,9 @@ var productList = [
         description: "Kính mũ bảo hiểm thời trang, bổ sung thêm phong cách khi đi xe.",
         price: 100000,
         discountPercent: 10,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Chất liệu: PolyCarbonat",
             "- Kính có màu trắng trong giúp người dùng rõ mắt khi đi trời nắng, không bị hạn chế khả năng nhìn khi đi trong đêm."
@@ -729,6 +879,9 @@ var productList = [
         description: "Kính mũ bảo hiểm với thiết kế hiện đại và đa dạng màu sắc.",
         price: 120000,
         discountPercent: 15,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Chất liệu: PolyCarbonat",
             "- Được sản xuất với công nghệ hiện đại giúp cho hình ảnh chuẩn không hại mắt, hạn chế tối đa khả năng oxi hóa nhựa do thời tiết đảm bảo cho kính giữ được độ trong trên 2 năm sử dụng."
@@ -741,6 +894,9 @@ var productList = [
         description: "Kính mũ bảo hiểm đa năng, chất liệu chắc chắn và bền bỉ.",
         price: 90000,
         discountPercent: 5,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Chất liệu: PolyCarbonat",
             "- Có tác dụng bảo vệ mắt trong điều kiện mưa gió, bụi đường, chống côn trùng."
@@ -753,6 +909,9 @@ var productList = [
         description: "Kính mũ bảo hiểm nhẹ và thoải mái, phù hợp với mọi loại mũ.",
         price: 95000,
         discountPercent: 0,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Chất liệu: PolyCarbonat",
             "- Được sản xuất với công nghệ hiện đại giúp cho hình ảnh chuẩn không hại mắt, hạn chế tối đa khả năng oxi hóa nhựa do thời tiết."
@@ -765,6 +924,9 @@ var productList = [
         description: "Kính mũ bảo hiểm thời trang, bảo vệ mắt hiệu quả khi đi xe.",
         price: 110000,
         discountPercent: 20,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Chất liệu: PolyCarbonat",
             "- Kính có màu trắng trong giúp người dùng rõ mắt khi đi trời nắng, không bị hạn chế khả năng nhìn khi đi trong đêm."
@@ -777,6 +939,9 @@ var productList = [
         description: "Kính mũ bảo hiểm đa dạng kiểu dáng, phù hợp với mọi lứa tuổi.",
         price: 105000,
         discountPercent: 10,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Chất liệu: PolyCarbonat",
             "- Được sản xuất với công nghệ hiện đại giúp cho hình ảnh chuẩn không hại mắt, hạn chế tối đa khả năng oxi hóa nhựa do thời tiết."
@@ -789,6 +954,9 @@ var productList = [
         description: "Kính mũ bảo hiểm sang trọng, đem lại phong cách cá tính.",
         price: 115000,
         discountPercent: 25,
+        get discountPrice() {
+            return this.price * (1 - this.discountPercent / 100);
+        },
         details: [
             "- Chất liệu: PolyCarbonat",
             "- Kính có màu trắng trong giúp người dùng rõ mắt khi đi trời nắng, không bị hạn chế khả năng nhìn khi đi trong đêm."
@@ -818,12 +986,11 @@ function displayProducts(productList, categoryName) {
 
         for (var i = startIndex; i < endIndex; i++) {
             var product = filteredProducts[i];
-            var discountPrice = product.price * (1 - product.discountPercent / 100);
             var hasDiscount = product.discountPercent > 0;
 
             var productHtml = `
                 <div class="col-md-4 col-lg-3 col-6 mb-3">
-                    <div class="product-card" data-category="${product.category}">
+                    <div class="product-card" data-product='${JSON.stringify(product)}'>
                         <img src="${product.image}" alt="${product.name}" class="product-image img-fluid">
                         <div class="product-content d-flex flex-column">
                             <div class="product-title">${product.name}</div>
@@ -876,20 +1043,7 @@ function displayProducts(productList, categoryName) {
 $(document).ready(function () {
     // Sự kiện click vào .product-card
     $(document).on('click', '.product-card', function () {
-
-
-        var product = {
-            name: $(this).find('.product-title').text(),
-            image: $(this).find('.product-image').attr('src'),
-            category: $(this).data('category'),
-            description: $(this).find('.product-description').text(),
-            discountPrice: $(this).find('.product-discount').text().trim(), // Giá sau khi giảm giá
-            price: $(this).find('.product-price').text().trim(), // Giá bán
-            discountPercent: $(this).find('.btn-discount').text().trim(), // Phần trăm giảm giá
-            // details: $(this).data('details') ? JSON.parse($(this).data('details')) : []
-        };
-
-        // Gọi hàm hiển thị modal và thông tin sản phẩm
+        var product = $(this).data('product');
         showModal(product);
     });
 
@@ -908,6 +1062,8 @@ $(document).ready(function () {
                     <p><strong>Mô tả:</strong> ${product.description}</p>
                 
         `;
+      
+        console.log(discountPercent + 'và' + discountPrice);
 
         // Kiểm tra và hiển thị chi tiết sản phẩm nếu có
         if (product.details && product.details.length > 0) {
@@ -919,26 +1075,31 @@ $(document).ready(function () {
             modalContent += `</ul>`;
         }
 
-        if (product.discountPrice < product.price) {
+       
+        if (pproduct.discountPercent > 0) {
             modalContent += `
-                <div class="product-price-container">
-                    <div class="product-price"><strong>Giá bán: </strong> ${product.price.toLocaleString()}</div>
-                </div>
+            <div class="product-price-container">
+                <div class="product-discount"><strong>Giá gốc:</strong>  ${product.price.toLocaleString()} </div>
+                <div class="product-price"><strong>Giá khuyến mãi:</strong> ${product.discountPrice.toLocaleString()} </div>
+                <div class="btn-discount"><strong>Giảm giá:</strong> ${discountPercent}%</div>
+           </div>
             `;
         } else {
             // Kiểm tra và xử lý phần trăm giảm giá
             var discountPercent = parseFloat(product.discountPercent);
             if (!isNaN(discountPercent)) {
+                // Tính giá sau khi giảm và lưu vào biến discountPrice
+                var discountPrice = product.price * (1 - discountPercent / 100);
+                console.log(discountPercent + ' và ' + discountPrice); // Debug log
                 modalContent += `
-                    <div class="product-price-container">
-                        <div class="product-discount"><strong>Giá gốc:</strong> ${product.discountPrice.toLocaleString()} </div>
-                        <div class="product-price"><strong>Giá khuyến mãi:</strong> ${product.price.toLocaleString()}  </div>
-                        <div class="btn-discount"><strong>Giảm giá:</strong> ${discountPercent}%</div>
-                    </div>
+                        <div class="product-price-container">
+                            <div class="product-price "><strong>Giá bán: </strong> ${product.price.toLocaleString()}</div>
+                        </div>
                 `;
             }
         }
 
+      
         modalContent += `
             <div class="input-group mt-3">
                 <span class="input-group-btn">
@@ -955,6 +1116,7 @@ $(document).ready(function () {
         </div>`;
 
         $('#productModalBody').html(modalContent);
+
         $('#productModal').modal('show');
         // xử lý các nút bấm
 
@@ -1055,7 +1217,7 @@ $(document).ready(function () {
                     <div class="alert alert-primary alert-dismissible fade show" role="alert">
                         <strong>${quantity} x ${name}</strong> đã được mua với giá ${price} VND.
                         <br>
-                        <strong>Total: ${(quantity*price).toLocaleString()}</strong>
+                        <strong>Total: ${(quantity * price).toLocaleString()}</strong>
                         <p>Đang chuyển hướng sang trang thanh toán</p>
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
