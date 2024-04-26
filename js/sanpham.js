@@ -989,7 +989,7 @@ function displayProducts(productList, categoryName) {
             var hasDiscount = product.discountPercent > 0;
 
             var productHtml = `
-                <div class="col-md-4 col-lg-3 col-6 mb-3">
+                <div class="col-md-4 col-lg-3 col-6 my-1 px-1">
                     <div class="product-card" data-product='${JSON.stringify(product)}'>
                         <img src="${product.image}" alt="${product.name}" class="product-image img-fluid">
                         <div class="product-content d-flex flex-column">
