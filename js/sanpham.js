@@ -1315,3 +1315,25 @@ function addToCart(name, discountPrice, quantity) {
     // Log để kiểm tra
     console.log('Đã thêm sản phẩm vào giỏ hàng:', product);
 }
+
+
+$(document).ready(function() {
+    var numItemsInCart = 0;
+
+    // Xử lý sự kiện khi người dùng nhấp vào nút giỏ hàng
+    $('.shopping-cart-btn').click(function() {
+      // Tăng số lượng sản phẩm trong giỏ hàng
+      numItemsInCart++;
+      // Cập nhật số lượng sản phẩm trong biểu tượng giỏ hàng
+      $('.num-item-in-cart').text(numItemsInCart);
+    });
+
+    // Xử lý sự kiện khi người dùng nhấp vào nút Thanh toán
+    $('.pay-btn').click(function() {
+      // Thêm code xử lý thanh toán ở đây (ví dụ: chuyển hướng đến trang thanh toán)
+      alert("Đã thanh toán!");
+      // Đặt lại số lượng sản phẩm trong giỏ hàng về 0
+      numItemsInCart = 0;
+      $('.num-item-in-cart').text(numItemsInCart);
+    });
+  });

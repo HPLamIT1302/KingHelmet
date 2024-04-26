@@ -529,6 +529,9 @@
     border-radius: 0;
   }
 
+  .fa-cart-plus{
+    color: orangered;
+  }
 
 
   /* CSS cho hình ảnh và mô tả khi giỏ hàng trống */
