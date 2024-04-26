@@ -147,3 +147,44 @@ body{
     width: auto;
 }
 
+/* CSS để canh giữa các biểu tượng font-awesome */
+#dichvucongty .fa-solid {
+    font-size: 48px; /* Điều chỉnh kích thước của biểu tượng */
+    display: block;
+    margin: 0 auto; /* Canh giữa biểu tượng */
+    margin-bottom: 20px; /* Khoảng cách dưới biểu tượng */
+}
+/* Định dạng màu cho các biểu tượng font-awesome */
+.fa-truck-fast {
+    color: #4CAF50; /* Màu xanh lá cây */
+}
+
+.fa-headset {
+    color: #FFC107; /* Màu vàng */
+}
+
+.fa-medal {
+    color: #FF5722; /* Màu cam đậm */
+}
+
+.fa-ticket {
+    color: #FF3D00; /* Màu đỏ */
+}
+
+
+/* CSS để thêm hiệu ứng cho card */
+#dichvucongty .card {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Đổ bóng card */
+    border-radius: 10px; /* Bo góc card */
+    transition: all 0.3s ease; /* Hiệu ứng chuyển động */
+    height: 100%;
+}
+
+#dichvucongty .card:hover {
+    transform: translateY(-5px); /* Di chuyển card lên trên khi rê chuột */
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2); /* Tăng độ đậm của đổ bóng */
+}
+
+#dichvucongty .card-body {
+    text-align: center; /* Canh giữa nội dung trong card */
+}
