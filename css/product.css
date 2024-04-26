@@ -64,7 +64,7 @@ body{
 
 .product-price-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     /* border: 1px solid black; */
     /* padding: 10px; Khoảng cách giữa nội dung và viền của product-price-container */

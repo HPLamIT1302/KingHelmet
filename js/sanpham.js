@@ -996,8 +996,8 @@ function displayProducts(productList, categoryName) {
                             <div class="product-title">${product.name}</div>
                             <div class="product-description">${product.description}</div>
                             <div class="product-price-container">
-                                ${hasDiscount ? `<div class="product-discount">${product.price.toLocaleString()} VND</div>` : ''}
-                                <div class="product-price">${discountPrice.toLocaleString()} VND</div>
+                                ${hasDiscount ? `<div class="product-discount">${product.price.toLocaleString()}₫</div>` : ''}
+                                <div class="product-price">${product.discountPrice.toLocaleString()}₫</div>
                             </div>
                         </div>
                         <div class="btn-discount ${hasDiscount ? '' : 'd-none'}">${hasDiscount ? `-${product.discountPercent.toLocaleString()}%` : ''}</div>
@@ -1062,44 +1062,40 @@ $(document).ready(function () {
                     <p><strong>Mô tả:</strong> ${product.description}</p>
                 
         `;
-      
-        console.log(discountPercent + 'và' + discountPrice);
+
+        console.log(product.discountPercent + 'và' + product.discountPrice);
 
         // Kiểm tra và hiển thị chi tiết sản phẩm nếu có
         if (product.details && product.details.length > 0) {
             modalContent += `<p><strong>Chi tiết sản phẩm:</strong></p>`;
-            modalContent += `<ul>`;
+            modalContent += `<ul style="list-style:none">`;
             product.details.forEach(detail => {
                 modalContent += `<li>${detail}</li>`;
             });
             modalContent += `</ul>`;
         }
 
-       
-        if (pproduct.discountPercent > 0) {
+
+        if (product.discountPercent > 0) {
             modalContent += `
             <div class="product-price-container">
-                <div class="product-discount"><strong>Giá gốc:</strong>  ${product.price.toLocaleString()} </div>
-                <div class="product-price"><strong>Giá khuyến mãi:</strong> ${product.discountPrice.toLocaleString()} </div>
-                <div class="btn-discount"><strong>Giảm giá:</strong> ${discountPercent}%</div>
+                <div class="product-discount"><strong>Giá gốc:</strong>  ${product.price.toLocaleString()}₫</div>
+                <div class="product-price"><strong>Giá khuyến mãi:</strong> ${product.discountPrice.toLocaleString()}₫</div>
+                <div class="btn-discount"><strong>Giảm giá:</strong> ${product.discountPercent}%</div>
            </div>
             `;
         } else {
             // Kiểm tra và xử lý phần trăm giảm giá
-            var discountPercent = parseFloat(product.discountPercent);
-            if (!isNaN(discountPercent)) {
-                // Tính giá sau khi giảm và lưu vào biến discountPrice
-                var discountPrice = product.price * (1 - discountPercent / 100);
-                console.log(discountPercent + ' và ' + discountPrice); // Debug log
+            if (!isNaN(product.discountPercent)) {
                 modalContent += `
                         <div class="product-price-container">
-                            <div class="product-price "><strong>Giá bán: </strong> ${product.price.toLocaleString()}</div>
+                            <div class="product-price "><strong>Giá bán: </strong> ${product.discountPrice.toLocaleString()} ₫</div>
                         </div>
                 `;
             }
         }
 
-      
+
         modalContent += `
             <div class="input-group mt-3">
                 <span class="input-group-btn">
@@ -1110,16 +1106,16 @@ $(document).ready(function () {
                     <button type="button" class="btn btn-outline-secondary btn-plus">+</button>
                 </span>
             </div>
-            <button class="btn btn-info btn-sm btn-add-to-cart mt-3" data-name="${product.name}" data-price="${product.price}">Thêm vào giỏ hàng</button>
-            <button class="btn btn-success btn-sm btn-buy-now mt-3" data-name="${product.name}" data-price="${product.price}">Mua ngay</button>
+            <button class="btn btn-info btn-sm btn-add-to-cart mt-3" data-name="${product.name}" data-price="${product.discountPrice}">Thêm vào giỏ hàng</button>
+            <button class="btn btn-success btn-sm btn-buy-now mt-3" data-name="${product.name}" data-price="${product.discountPrice}">Mua ngay</button>
         </div>
         </div>`;
 
         $('#productModalBody').html(modalContent);
-
         $('#productModal').modal('show');
-        // xử lý các nút bấm
 
+
+        // xử lý các nút bấm
         // Xử lý sự kiện click nút thêm số lượng
         $(document).on('click', '.btn-plus', function () {
             var input = $(this).closest('.input-group').find('input.product-quantity');
@@ -1136,37 +1132,61 @@ $(document).ready(function () {
             }
         });
 
-        // Handle "Thêm vào giỏ hàng" button click
+        // sử lý sự kiện thêm sản phẩm giỏ hàng
         $(document).on('click', '.btn-add-to-cart', function () {
             var name = $(this).data('name');
-            var priceString = $(this).data('price');
-
-            // Loại bỏ dấu chấm và dấu phân cách hàng nghìn (nếu có)
-            var priceCleaned = priceString.replace(/\./g, '');
-
-            // Chuyển đổi chuỗi thành số nguyên
-            var price = parseInt(priceCleaned);
-
-            var quantity = parseInt($(this).closest('.col-12').find('.product-quantity').val());
-
+            var price = $(this).data('discountPrice');
+            var discountPrice = $(this).data('price');
+            var discountPercent = $(this).data('discountPercent');
+            var image = $(this).data('image');
+            var quantity = parseInt($(this).closest('.row').find('.product-quantity').val());
 
             // Hiển thị thông báo khi sản phẩm được thêm vào giỏ hàng
-            displayAddToCartAlert(name, price, quantity);
+            displayAddToCartAlert(name, discountPrice, quantity);
 
             // Thêm sản phẩm vào giỏ hàng
-            addToCart(name, price, quantity);
+            addToCart(name, price, discountPrice, discountPercent, image, quantity);
+        });
+        // Function to add product to cart
+        function addToCart(name, price, discountPrice, discountPercent, image, quantity) {
+            var product = {
+                name: name,
+                price: price,
+                discountPrice: discountPrice,
+                discountPercent: discountPercent,
+                image: image,
+                quantity: quantity
+            };
+            cart.push(product);
+        }
+
+        // Handle "Mua ngay" button click
+        $(document).on('click', '.btn-buy-now', function () {
+            var name = $(this).data('name');
+            var price = $(this).data('discountPrice');
+            var discountPrice = $(this).data('price');
+            var discountPercent = $(this).data('discountPercent');
+            var image = $(this).data('image');
+            var quantity = parseInt($(this).closest('.row').find('.product-quantity').val());
+
+            // Thêm sản phẩm vào giỏ hàng
+            addToCart(name, price, discountPrice, discountPercent, image, quantity);
+            displayCheckoutRedirectAlert(name, discountPrice, quantity);
+
         });
 
-        // Function to display add to cart alert
-        function displayAddToCartAlert(name, price, quantity) {
+
+
+        // Hàm hiển thị thông báo khi thêm sản phẩm vào giỏ hàng
+        function displayAddToCartAlert(name, discountPrice, quantity) {
             var alertHtml = `
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>${quantity} x ${name}</strong> đã được thêm vào giỏ hàng với đơn giá ${price} VND.
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            `;
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>${quantity} x ${name}</strong> đã được thêm vào giỏ hàng với đơn giá ${discountPrice.toLocaleString()} VND.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        `;
 
             // Hiển thị thông báo trong phần tử có id là 'alertContainer'
             $('#alertContainer').html(alertHtml);
@@ -1174,55 +1194,24 @@ $(document).ready(function () {
             // Tự động đóng thông báo sau 10 giây
             setTimeout(function () {
                 $('.alert').alert('close');
-            }, 10000); // 10 giây
-        }
-        function addToCart(name, price, quantity) {
-            const total = quantity * price;
-            console.log('Đã thêm! chưa xử lỹ code này ở js.sanpham.js line 1082');
-            console.log(name + " với giá: " + price + " và số lượng: " + quantity + "- Thành tiền: " + total);
+            }, 5000); // 10 giây
+
+
         }
 
-        // Handle "Mua ngay" button click
-        $(document).on('click', '.btn-buy-now', function () {
-            var name = $(this).data('name');
-            var priceString = $(this).data('price');
-
-            // Loại bỏ dấu chấm và dấu phân cách hàng nghìn (nếu có)
-            var priceCleaned = priceString.replace(/\./g, '');
-
-            // Chuyển đổi chuỗi thành số nguyên
-            var price = parseInt(priceCleaned);
-
-            var quantity = parseInt($(this).closest('.col-12').find('.product-quantity').val());
-
-            // Hiển thị thông báo chuyển hướng sang trang thanh toán
-            displayCheckoutRedirectAlert(name, price, quantity);
-        });
-
-        // Function to display add to cart alert
-        function displayCheckoutRedirectAlert(name, price, quantity) {
-            console.log('Giá:', price);
-            console.log('Số lượng:', quantity);
-
-            try {
-                const total = quantity * price;
-                console.log('Sản phẩm:', name, 'với giá:', price, 'và số lượng:', quantity, '- Thành tiền:', total);
-            } catch (error) {
-                console.error('Lỗi khi tính tổng:', error);
-            }
-            console.log('Đã mua! chưa xử lỹ code này ở js.sanpham.js line 1082');
-
-
+        // Hàm hiển thị thông báo khi mua ngay và chuyển hướng sang trang thanh toán
+        function displayCheckoutRedirectAlert(name, discountPrice, quantity) {
+            var total = discountPrice * quantity; // Tính tổng giá
             var alertHtml = `
-                    <div class="alert alert-primary alert-dismissible fade show" role="alert">
-                        <strong>${quantity} x ${name}</strong> đã được mua với giá ${price} VND.
-                        <br>
-                        <strong>Total: ${(quantity * price).toLocaleString()}</strong>
-                        <p>Đang chuyển hướng sang trang thanh toán</p>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
+                <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                    <strong>${quantity} x ${name}</strong> đã được mua với giá ${discountPrice.toLocaleString()} VND.
+                    <br>
+                    <strong>Total: ${total.toLocaleString()} VND</strong>
+                    <p>Đang chuyển hướng sang trang thanh toán sau 5s ...</p>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
                 `;
 
             // Hiển thị thông báo trong phần tử có id là 'alertContainer'
@@ -1231,12 +1220,36 @@ $(document).ready(function () {
             // Tự động đóng thông báo sau 10 giây
             setTimeout(function () {
                 $('.alert').alert('close');
-            }, 50000); // 10 giây
-        }
 
+                // Chuyển hướng người dùng sang trang thanh toán nếu giỏ hàng không trống
+                if (cart.length > 0) {
+                    window.location.href = 'trang-thanh-toan.html'; // Thay 'trang-thanh-toan.html' bằng đường dẫn đến trang thanh toán của bạn
+                } else {
+                    // Xử lý khi giỏ hàng trống
+                    console.log('Giỏ hàng trống');
+                }
+            }, 5000); // 10 giây
+        }
 
     }
 
 });
 
 
+// giỏ hàng
+var cart = [];
+// Hàm thêm sản phẩm vào giỏ hàng
+function addToCart(name, discountPrice, quantity) {
+    // Tạo một đối tượng sản phẩm
+    var product = {
+        name: name,                // Tên sản phẩm
+        price: discountPrice,     // Giá sản phẩm (có thể là giá giảm giá nếu có)
+        quantity: quantity        // Số lượng sản phẩm
+    };
+
+    // Thêm sản phẩm vào mảng giỏ hàng
+    cart.push(product);
+
+    // Log để kiểm tra
+    console.log('Đã thêm sản phẩm vào giỏ hàng:', product);
+}
