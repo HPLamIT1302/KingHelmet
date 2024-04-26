@@ -495,3 +495,52 @@
  }
 
  
+ .shopping-cart {
+    position: fixed;
+    top: 18%; /* Điều chỉnh khoảng cách từ đỉnh màn hình */
+    right: 0; /* Điều chỉnh khoảng cách từ cạnh phải của màn hình */
+    z-index: 9999; /* Đảm bảo giỏ hàng hiển thị trên các phần tử khác */
+    background-color: #007bff;
+    border-radius: 10px;
+  }
+
+  /* CSS cho nút giỏ hàng */
+  .shopping-cart-btn {
+    background-color: transparent;
+    border: none;
+  }
+
+  /* CSS cho số lượng sản phẩm trong giỏ hàng */
+  .num-item-in-cart {
+    background-color: tan;
+    color: #fff;
+    font-size: 12px;
+    padding: 3px 7px;
+    border-radius: 50%;
+    position: absolute;
+    top: -10px;
+    right: 45px;
+  }
+
+  /* CSS cho nút thanh toán */
+  .pay-btn {
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 0;
+  }
+
+
+
+  /* CSS cho hình ảnh và mô tả khi giỏ hàng trống */
+  .figure {
+    pointer-events: none; /* Loại bỏ sự kiện click trên hình ảnh khi giỏ hàng trống */
+  }
+
+  .text-bg {
+    background-color: #f8f9fa;
+    color: #333;
+  }
+
+  .text-big {
+    font-size: 16px;
+  }
