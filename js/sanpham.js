@@ -1285,7 +1285,7 @@ $(document).ready(function () {
 
                 // Chuyển hướng người dùng sang trang thanh toán nếu giỏ hàng không trống
                 if (cart.length > 0) {
-                    window.location.href = 'trang-thanh-toan.html'; // Thay 'trang-thanh-toan.html' bằng đường dẫn đến trang thanh toán của bạn
+                    window.location.href = 'gio-hang.html'; // Thay 'trang-thanh-toan.html' bằng đường dẫn đến trang thanh toán của bạn
                 } else {
                     // Xử lý khi giỏ hàng trống
                     console.log('Giỏ hàng trống');
