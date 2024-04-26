@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart Example</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Định dạng số lượng sản phẩm trong giỏ hàng */
+.num-item-in-cart {
+    background-color: #ff0000; /* Màu nền đỏ */
+    color: #fff; /* Màu chữ trắng */
+    position: absolute; /* Định vị tuyệt đối */
+    top: -8px; /* Dịch lên trên một chút để nằm giữa vòng tròn */
+    right: -8px; /* Dịch sang phải một chút để nằm giữa vòng tròn */
+    font-size: 12px; /* Kích thước font nhỏ */
+}
+
+/* Định dạng menu thả xuống */
+.dropdown-menu {
+    width: 250px; /* Định dạng chiều rộng */
+    padding: 10px; /* Khoảng cách bên trong */
+}
+
+/* Định dạng icon giỏ hàng */
+.shopping-cart-btn {
+    background-color: transparent; /* Nền trong suốt */
+    border: none; /* Không có viền */
+}
+/* CSS for breadcrumb */
+.breadcrumb-container {
+    background-color: #f5f5f5;
+    padding: 10px;
+}
+
+.breadcrumb {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+}
+
+.breadcrumb li {
+    display: inline;
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+.breadcrumb li:last-child {
+    font-weight: bold;
+    color: #333;
+}
+
+
+  </style>
+</head>
+<body>
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+            <li class="breadcrumb-item"><a href="#">Cửa hàng</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Trang sản phẩm</li>
+        </ol>
+    </nav>
+
+    
+    <hr>
+    <div class="breadcrumb-container">
+        <ul class="breadcrumb">
+            <li><a href="#">Trang chủ</a></li>
+            <li> > </li>
+            <li><a href="#">Cửa hàng</a></li>
+            <li>Trang sản phẩm</li>
+        </ul>
+    </div>
+
+    <hr class="h-1">
+<div class="container mt-5">
+  <div class="row justify-content-end">
+    <div class="col-md-3">
+      <div class="dropdown">
+        <button class="btn shopping-cart-btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="ti-shopping-cart"></i>
+          <span class="num-item-in-cart rounded-circle">0</span>
+        </button>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+          <div class="dropdown-item figure text-center rounded-0 p-3 mx-auto" style="pointer-events: none;">
+            <img src="./images/shopping-cart-icon.png" height="100" alt="">
+            <div class="figure-caption text-bg text-big">Chưa có sản phẩm nào trong giỏ hàng</div>
+          </div>
+          <button class="btn w-100 text-md mx-auto mt-3 pay-btn">Thanh toán</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

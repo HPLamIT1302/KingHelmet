@@ -152,6 +152,7 @@ legend {
     background-color: #4993E8;
     padding: 15px 15px;
     color: black;
+    text-align: justify;
 }
 #footer .fa-solid{
     color: white;
@@ -341,4 +342,23 @@ legend {
 
 #bottom-social-media .fab{
     font-size: 3rem;
+}
+
+.breadcrumb {
+    background-color: #f8f9fa; /* Màu nền */
+    padding: 8px 15px; /* Khoảng cách giữa các breadcrumb */
+    border-radius: 4px; /* Bo góc */
+}
+
+.breadcrumb-item {
+    font-size: 16px; /* Kích thước chữ */
+}
+
+.breadcrumb-item a {
+    color: #6c757d; /* Màu chữ cho các liên kết */
+    text-decoration: none; /* Bỏ gạch chân */
+}
+
+.breadcrumb-item.active {
+    color: #007bff; /* Màu chữ cho breadcrumb hiện tại */
 }
