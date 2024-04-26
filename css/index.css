@@ -153,6 +153,9 @@ legend {
     padding: 15px 15px;
     color: black;
 }
+#footer .fa-solid{
+    color: white;
+}
 #footer a{
     color: #000;
 }
@@ -168,9 +171,8 @@ legend {
     border-top: 1px solid #333;
     align-items: center;
     text-align: center;
-    padding: 30px 0;
     font-size: 0.9rem;
-    color: #aaa;
+    color: #000;
 }
 .contact-icon{
     display: inline-block;
@@ -185,7 +187,10 @@ legend {
     color: #aaa;
 }
 .cty-name > a{
-    color: #aaa;
+    color: white;
+    font-weight: 700;
+    text-align: center;
+    color: white;
 }
 
 #list-icon-category .col{
@@ -328,3 +333,12 @@ legend {
     text-align: center; /* Canh giữa nội dung trong card */
 }
 
+.ten-cty{
+    color: white;
+    font-weight: bolder;
+    font-size: 24px;
+}
+
+#bottom-social-media .fab{
+    font-size: 3rem;
+}
