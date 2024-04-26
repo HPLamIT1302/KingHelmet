@@ -1337,3 +1337,22 @@ $(document).ready(function() {
       $('.num-item-in-cart').text(numItemsInCart);
     });
   });
+
+  $(document).ready(function(){
+    var images = $('.image-container img');
+    var currentIndex = 0;
+  
+    function showImage(index) {
+      images.removeClass('active');
+      images.eq(index).addClass('active');
+    }
+  
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % images.length;
+      showImage(currentIndex);
+    }
+  
+    // Tự động chuyển ảnh sau mỗi 3 giây
+    setInterval(nextImage, 5000);
+  });
+  
