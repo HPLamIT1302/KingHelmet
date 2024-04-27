@@ -1484,7 +1484,6 @@ $(document).ready(function () {
 
 
 
-
 // Hàm cập nhật dropdown menu giỏ hàng
 function updateCartDropdown() {
     // Lấy giỏ hàng từ localStorage
@@ -1525,15 +1524,6 @@ function updateCartDropdown() {
         // Hiển thị danh sách sản phẩm trong giỏ hàng
         cartItemsContainer.show();
     }
-    // Thêm sự kiện cho nút "Xóa" để loại bỏ sản phẩm khỏi giỏ hàng khi nhấn
-    // Thay đổi phần gán sự kiện cho nút "Xóa" trong hàm updateCartDropdown()
-    $('body').on('click', '.remove-from-cart', function () {
-        var productName = $(this).data('name');
-        removeFromCart(productName);
-    });
-
-
-
     // Cập nhật số lượng sản phẩm trong biểu tượng giỏ hàng
     updateCartIcon(cartItems.length);
 }
@@ -1542,6 +1532,11 @@ $(document).ready(function () {
     updateCartDropdown();
 });
 
+// Gán sự kiện cho nút "Xóa" bằng cách sử dụng $(document).on()
+$(document).on('click', '.remove-from-cart', function () {
+    var productName = $(this).data('name');
+    removeFromCart(productName);
+});
 
 // Hàm loại bỏ sản phẩm khỏi giỏ hàng
 function removeFromCart(productName) {
@@ -1559,8 +1554,6 @@ function removeFromCart(productName) {
     // Cập nhật dropdown menu giỏ hàng
     updateCartDropdown();
 }
-
-
 
 function updateCartIcon(numItems) {
     // Cập nhật số lượng sản phẩm trong biểu tượng giỏ hàng

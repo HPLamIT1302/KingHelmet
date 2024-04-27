@@ -264,11 +264,15 @@
                         <i class="fa-solid fa-cart-plus"></i>
                     </button>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                        <div class="dropdown-item figure text-center rounded-0 p-3 mx-auto">
+                        <div class="dropdown-item figure text-center rounded-0 p-3 mx-auto empty-cart-message" style="display: none;">
                             <div class="figure-caption text-bg text-big">Chưa có sản phẩm nào trong giỏ hàng</div>
+                        </div>
+                        <div class="cart-items-container">
+                            <!-- Danh sách sản phẩm trong giỏ hàng sẽ được thêm vào đây -->
                         </div>
                         <button class="btn w-100 text-md mx-auto mt-3 pay-btn">Thanh toán</button>
                     </div>
+                    
                 </div>
             </div>
         </div>
