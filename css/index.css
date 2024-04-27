@@ -522,6 +522,9 @@
     right: 45px;
   }
 
+  .dropdown-menu-right{
+    background-color: #007bff;
+  }
   /* CSS cho nút thanh toán */
   .pay-btn {
     background-color: #007bff;
