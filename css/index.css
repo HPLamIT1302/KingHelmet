@@ -574,7 +574,16 @@
     opacity: 1;
     filter: grayscale(0%); /* Loại bỏ hiệu ứng xám */
   }
-  
+  .cart-item {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.cart-item img {
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+}
 
   
 

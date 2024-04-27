@@ -1168,8 +1168,10 @@ $(document).ready(function () {
                     <button type="button" class="btn btn-outline-secondary btn-plus">+</button>
                 </span>
             </div>
-            <button class="btn btn-info btn-sm btn-add-to-cart mt-3" data-name="${product.name}" data-price="${product.discountPrice}">Thêm vào giỏ hàng</button>
-            <button class="btn btn-success btn-sm btn-buy-now mt-3" data-name="${product.name}" data-price="${product.discountPrice}">Mua ngay</button>
+            <div class="d-flex flex-column flex-md-row  justify-content-between">
+            <button class="btn btn-info  btn-add-to-cart m-2 w-100" data-name="${product.name}" data-price="${product.discountPrice}"> <i class="fa-solid fa-cart-plus text-light"></i> Thêm vào giỏ hàng</button>
+            <button class="btn btn-warning  btn-buy-now m-2 w-100" data-name="${product.name}" data-price="${product.discountPrice}">Mua ngay</button>
+            </div>
         </div>
         </div>`;
 
@@ -1395,13 +1397,16 @@ $(document).ready(function () {
                     <strong>${quantity} x ${name}</strong> đã được mua với giá ${discountPrice.toLocaleString()} VND.
                     <br>
                     <strong>Total: ${total.toLocaleString()} VND</strong>
-                    <p>Đang chuyển hướng sang trang thanh toán sau 10 giây ...</p>
+                    <div class="spinner-border"></div>
+                    <p> Đang chuyển hướng sang trang thanh toán sau 3 giây ...</p>
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
             `;
 
+           
+          
             // Hiển thị thông báo trong phần tử có id là 'alertContainer'
             $('#alertContainer').html(alertHtml);
 
@@ -1409,9 +1414,9 @@ $(document).ready(function () {
             setTimeout(function () {
                 $('.alert').alert('close');
 
-                // Chuyển hướng người dùng sang trang thanh toán sau 10 giây
+                // Chuyển hướng người dùng sang trang thanh toán sau 3 giây ...
                 window.location.href = '../html/gio-hang.html'; // Thay 'trang-thanh-toan.html' bằng đường dẫn đến trang thanh toán của bạn
-            }, 10000); // 10 giây
+            }, 3000); // 3 giây
         }
 
     }
@@ -1559,3 +1564,46 @@ function updateCartIcon(numItems) {
     // Cập nhật số lượng sản phẩm trong biểu tượng giỏ hàng
     $('.num-item-in-cart').text(numItems);
 }
+
+
+$(document).ready(function () {
+    // Trích xuất dữ liệu từ Local Storage
+    var cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Lấy phần tử chứa danh sách sản phẩm trong giỏ hàng
+    var cartItemsContainer = $('#cart-items-container');
+
+    // Hiển thị danh sách sản phẩm trong giỏ hàng
+    if (cartItems.length === 0) {
+        cartItemsContainer.html('<p>Giỏ hàng của bạn đang trống.</p>');
+    } else {
+        cartItemsContainer.empty();
+        cartItems.forEach(function (item) {
+            // Tính tổng cộng
+            var total = item.discountPrice * item.quantity;
+            var discountPercent = ((item.price - item.discountPrice) / item.price) * 100;
+
+            var productHtml = `
+                <div class="card mb-3">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="${item.image}" alt="${item.name}" class="img-fluid rounded-start">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">${item.name}</h5>
+                                <p class="card-text">Giá gốc: ${item.price.toLocaleString()} VND</p>
+                                <p class="card-text">Giá giảm: ${item.discountPrice.toLocaleString()} VND</p>
+                                <p class="card-text">Phần trăm khuyến mãi: ${discountPercent}%</p>
+                                <p class="card-text">Số lượng: ${item.quantity}</p>
+                                <p class="card-text">Tổng cộng: ${total.toLocaleString()} VND</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            cartItemsContainer.append(productHtml);
+        });
+    }
+});
+
