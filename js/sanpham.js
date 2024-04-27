@@ -1592,11 +1592,10 @@ $(document).ready(function () {
                         <div class="col-md-8">
                             <div class="card-body">
                                 <h5 class="card-title">${item.name}</h5>
-                                <p class="card-text">Giá gốc: ${item.price.toLocaleString()} VND</p>
-                                <p class="card-text">Giá giảm: ${item.discountPrice.toLocaleString()} VND</p>
-                                <p class="card-text">Phần trăm khuyến mãi: ${discountPercent}%</p>
+                                <p class="product-discount">Giá gốc: ${item.price.toLocaleString()} VND</p>
+                                <p class="product-price">Giá giảm: ${item.discountPrice.toLocaleString()} VND</p>
+                                <p class="btn btn-danger text-center">-${discountPercent}%</p>
                                 <p class="card-text">Số lượng: ${item.quantity}</p>
-                                <p class="card-text">Tổng cộng: ${total.toLocaleString()} VND</p>
                             </div>
                         </div>
                     </div>
@@ -1607,3 +1606,57 @@ $(document).ready(function () {
     }
 });
 
+$(document).ready(function () {
+    // Trích xuất dữ liệu từ Local Storage
+    var cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Lấy phần tử chứa bảng hóa đơn
+    var billTable = $('#bill-table');
+
+    // Hiển thị bảng hóa đơn
+    if (cartItems.length === 0) {
+        billTable.html('<p>Không có sản phẩm nào trong giỏ hàng.</p>');
+    } else {
+        // Tạo header cho bảng hóa đơn
+        var tableHtml = `
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">STT</th>
+                        <th scope="col">Tên sản phẩm</th>
+                        <th scope="col">Giá gốc (VND)</th>
+                        <th scope="col">Giá giảm (VND)</th>
+                        <th scope="col">Phần trăm khuyến mãi (%)</th>
+                        <th scope="col">Số lượng</th>
+                        <th scope="col">Tổng cộng (VND)</th>
+                    </tr>
+                </thead>
+                <tbody id="bill-body">
+                </tbody>
+            </table>
+        `;
+
+        billTable.html(tableHtml);
+
+        var billBody = $('#bill-body');
+
+        // Duyệt qua từng sản phẩm và thêm vào bảng hóa đơn
+        cartItems.forEach(function (item, index) {
+            var total = item.discountPrice * item.quantity;
+            var discountPercent = ((item.price - item.discountPrice) / item.price) * 100;
+
+            var rowHtml = `
+                <tr>
+                    <th scope="row">${index + 1}</th>
+                    <td>${item.name}</td>
+                    <td>${item.price.toLocaleString()}</td>
+                    <td>${item.discountPrice.toLocaleString()}</td>
+                    <td>${discountPercent.toFixed(2)}</td>
+                    <td>${item.quantity}</td>
+                    <td>${total.toLocaleString()}</td>
+                </tr>
+            `;
+            billBody.append(rowHtml);
+        });
+    }
+});
