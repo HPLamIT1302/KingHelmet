@@ -187,42 +187,40 @@
 
             </div>
             <div class="col-md-9" id="section">
-                <div id="members" class="container " style="min-height: 51vh;">
+                <div id="members" class="container" style="min-height: 51vh;">
                     <div class="text-center p-3"><span class="display-4 text-center">DANH SÁCH THÀNH VIÊN ĐĂNG KÝ</span></div>
-                    <table class="table table-striped mx-auto " id="table-members">
-                       <thead>
-                         <tr>
-                           <th scope="col">STT</th>
-                           <th scope="col">Họ tên</th>
-                           <th scope="col">Email</th>
-                           <th scope="col">Số điện thoại</th>
-                           <th scope="col">Địa chỉ</th>
-                         </tr>                                                           
-                       </thead>
-                       <tbody id="print-info">
-                         <tr>
-                           <th scope="row">1</th>
-                           <td>Hồ Phúc Lâm</td>
-                           <td>hplam.it13@gmail.com</td>
-                           <td>0374826297</td>
-                           <td>Đại học Công Nghiệp TPHCM</td>
-                         </tr>
-                         
-                       </tbody>
-                     </table>
-                     <div class="text-center">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Họ và tên</th>
+                                <th>Tên đăng nhập</th>
+                                <th>Email</th>
+                                <th>Số điện thoại</th>
+                                <th>Ngày sinh</th>
+                                <th>Địa chỉ</th>
+                            </tr>
+                        </thead>
+                        <tbody id="memberList">
+                            <!-- Dữ liệu thành viên sẽ được thêm vào đây -->
+                            <td>Hồ Phúc Lâm</td>
+                            <td>hophuclam</td>
+                            <td>hophuclam@1996@gmail.com</td>
+                            <td>0374826297</td>
+                            <td>2004</td>
+                            <td>Đại học Công nghiệp TPHCM</td>
+                        </tbody>
+                    </table>
+                    <div class="text-center d-flex justify-content-around">
                         <a href="../html/dang-nhap.html"><button type="button" class="btn btn-primary">Đăng nhập</button></a>
-                     </div>
-                   
-                 </div>
-              
+                        <a href="../html/dang-ky.html"><button type="button" class="btn btn-primary">Đăng kí</button></a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
 
-
-
+    
 
     <!-- Modal -->
     <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">

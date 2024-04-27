@@ -1447,46 +1447,63 @@ $(document).ready(function () {
     // Tự động chuyển ảnh sau mỗi 3 giây
     setInterval(nextImage, 5000);
 });
-
-var users = [];
-
 $(document).ready(function () {
+    // Lấy dữ liệu thành viên từ localStorage nếu có
+    var users = JSON.parse(localStorage.getItem('users')) || [];
+
+    // Hiển thị danh sách thành viên
+    function displayMembers() {
+      var memberTable = $('#memberList');
+      memberTable.empty();
+      users.forEach(function(user) {
+        var row = $('<tr>');
+        row.append('<td>' + user.fullName + '</td>');
+        row.append('<td>' + user.username + '</td>');
+        row.append('<td>' + user.email + '</td>');
+        row.append('<td>' + user.phone + '</td>');
+        row.append('<td>' + user.dob + '</td>');
+        row.append('<td>' + user.address + '</td>');
+        memberTable.append(row);
+      });
+    }
+
+    displayMembers();
+
     $('#registerForm').submit(function (e) {
-        e.preventDefault();
-        if (this.checkValidity()) {
-            var formData = $(this).serializeArray();
-            var userObject = {};
-            $.each(formData, function (i, field) {
-                userObject[field.name] = field.value;
-            });
-            users.push(userObject);
-            console.log(users); // In thông tin người dùng vào console
-            alert('Đăng ký thành công!');
-            $('#registerForm')[0].reset();
-        } else {
-            e.stopPropagation();
-            $(this).addClass('was-validated');
-        }
+      e.preventDefault();
+      if (this.checkValidity()) {
+        var formData = $(this).serializeArray();
+        var userObject = {};
+        $.each(formData, function (i, field) {
+          userObject[field.name] = field.value;
+        });
+        users.push(userObject);
+        localStorage.setItem('users', JSON.stringify(users)); // Lưu vào localStorage
+        displayMembers(); // Hiển thị lại danh sách thành viên
+        alert('Đăng ký thành công!');
+        $('#registerForm')[0].reset();
+      } else {
+        e.stopPropagation();
+        $(this).addClass('was-validated');
+      }
     });
-});
 
-$(document).ready(function () {
     $('#loginForm').submit(function (e) {
         e.preventDefault();
-        // Lấy giá trị từ các trường input
-        var username = $('#username').val();
-        var password = $('#password').val();
-
-        // Kiểm tra tên đăng nhập và mật khẩu
-        if (username === 'admin' && password === 'admin') {
-            alert('Đăng nhập thành công!');
-            // Redirect hoặc thực hiện các hành động khác sau khi đăng nhập thành công
+        var username = $('#loginUsername').val();
+        var password = $('#loginPassword').val();
+        var foundUser = users.find(function(user) {
+          return user.username === username && user.password === password;
+        });
+        if (foundUser) {
+          alert('Đăng nhập thành công!');
+          // Thực hiện các hành động sau khi đăng nhập thành công
         } else {
-            alert('Tên đăng nhập hoặc mật khẩu không đúng!');
+          alert('Tên đăng nhập hoặc mật khẩu không đúng!');
         }
-    });
-});
+      });
 
+  });
 
 
 // Hàm cập nhật dropdown menu giỏ hàng
@@ -1594,8 +1611,8 @@ $(document).ready(function () {
                                 <h5 class="card-title">${item.name}</h5>
                                 <p class="product-discount">Giá gốc: ${item.price.toLocaleString()} VND</p>
                                 <p class="product-price">Giá giảm: ${item.discountPrice.toLocaleString()} VND</p>
-                                <p class="btn btn-danger text-center">-${discountPercent}%</p>
-                                <p class="card-text">Số lượng: ${item.quantity}</p>
+                                <p class="btn btn-danger text-center">-${discountPercent}%</p>   <span class="card-text">Số lượng: ${item.quantity}</span>
+                              
                             </div>
                         </div>
                     </div>
